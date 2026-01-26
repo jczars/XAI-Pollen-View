@@ -138,3 +138,139 @@ git push origin main
 
 ## Phase 1
 ### Preprocess
+**1. dowload dataset**:
+**Cretan Pollen Dataset v1 (CPD-1):**
+
+This is the selected dataset. Download the dataset to the BD folder. If the BD folder does not exist, create it in the root directory of the project.
+Download the database available at: https://zenodo.org/records/4756361. Choose the Cropped Pollen Grains version and place it in the BD folder.
+```bash
+wget -O Cropped_Pollen_Grains.rar "https://zenodo.org/records/4756361/files/Cropped%20Pollen%20Grains.rar?download=1"
+
+```
+or
+```bash
+curl -L -o Cropped_Pollen_Grains.rar "https://zenodo.org/records/4756361/files/Cropped%20Pollen%20Grains.rar?download=1"
+```
+To extract the .rar file, you need to install the unrar tool (if not already installed):
+```bash
+sudo apt install unrar   # Ubuntu/Debian
+
+```
+This installs the unrar tool, which is necessary for extracting .rar files.
+```bash
+unrar x Cropped_Pollen_Grains.rar
+```
+
+**2. Renaming Dataset Classes:**
+
+The database class names follow the syntax “1.Thymbra” (e.g., "1.Thymbra", "2.Erica"). We will rename the folders to follow a simpler format like “thymbra”.
+Use the rename_folders.py script to rename the classes:
+
+```bash
+python3 preprocess/rename_folders.py --path_data BD/Cropped\ Pollen\ Grains/
+```
+This command runs the rename_folders.py script to rename the class folders inside the Cropped Pollen Grains directory. Each folder name will be converted to lowercase for consistency.
+
+**3. Resize images dataset:**
+
+This script reads the images from the Cropped Pollen Grains dataset and checks if they are in the standard size of 224 x 224. If any images do not meet these dimensions, the script creates a new dataset with all images resized to the specified size.
+
+The resizing process uses a configuration file (config_resize.yaml) to define input and output paths, along with other parameters.
+
+**Expected Result**:
+
+A new dataset folder containing all images resized to 224 x 224, ensuring consistency across the dataset.
+
+Usage: To run the resizing script with the configuration file, use the following command:
+
+```bash
+python3 preprocess/resize_img_bd.py --config preprocess/config_resize.yaml
+```
+
+**4. Prepare the Dataset for Cross-Validation and Data Augmentation**:
+
+This script divides the dataset into separate folders to perform cross-validation and then applies data augmentation using a balancing strategy, where the goal variable specifies the target number of images per class. The script counts the samples in each class, and any class below the defined target is augmented until the target size is reached.
+
+**Inputs**:
+A YAML configuration file (example: config_balanced.yaml) that defines the parameters for the script execution.
+
+**Expected Outputs**:
+At the end of the execution, the script generates a balanced dataset with additional images for classes that initially have fewer samples. The balanced dataset is saved in the specified output folder.
+
+**Example of Execution**:
+To run the script, make sure the configuration file (config_balanced.yaml) is set up correctly and execute the following command:
+
+```bash
+python preprocess/split_aug_bd_k.py --config preprocess/config_aug_bd.yaml
+```
+
+### Fine-tuning
+In this steps, pre-trained models are refined to classify the datasets generated in preprocess. The selected models include DenseNet201 and Xception. The fine-tuning process follows the DFT (Deeply Fine-Tuning) strategy to optimize the network performance.
+
+**Required Configuration**:
+
+To execute the tests, a spreadsheet containing the experimental configurations is required. The default configuration file can be found in the folder:
+
+```bash
+results/AT_densenet+cbam_exp/config_AT_cr_180225.xlsx
+```
+**Execution**:
+
+Use the following command to run the fine-tuning script:
+```bash
+python phase1/AT_DenseNet_CBAM_K10_xlsx.py results/phase1/AT_densenet+cbam_exp/config_AT_cr_180225.xlsx
+```
+**Failure Management**:
+
+During the tests, especially when using memory-intensive networks like DenseNet201, failures may occur due to full memory consumption. To address this, a spreadsheet with control variables tracks the progress of the tests, allowing for recovery.
+
+**Control Variables**:
+
+last_test_index: Index of the last completed test.
+k_fold_number: Number of the current k-fold to be executed.
+num_k_folds: Number of remaining k-folds to complete the cycle.
+num_tests: Number of tests remaining to be executed.
+Default Configuration
+```bash
+last_test_index = 0
+k_fold_number = 1
+num_k_folds = 10
+num_tests = 3
+```
+This configuration runs 3 tests, covering all k-folds (k=1 to k=10) for each test.
+
+**Recovery Example**:
+
+If a test fails at index 6 with k=9, use the following configuration to resume:
+```bash
+last_test_index = 6
+k_fold_number = 10
+num_k_folds = 1
+num_tests = 1
+```
+This setup ensures the tests are resumed in a controlled and efficient manner.
+
+**Expected Results**:
+
+The results are stored in the "results" folder where the spreadsheet is located. Two folders are created for each trained model:
+one folder to save the trained models and another folder to save the reports.
+The folder naming convention follows the pattern: id_test, model_name, and reports.
+* results/AT_densenet+cbam_exp/0_DenseNet201
+* results/AT_densenet+cbam_exp/0_DenseNet201_reports
+
+The reports saved in reports include:
+* **CSV** files containing metrics and detailed predictions.
+* Classification report
+* List of correct classifications
+* List of incorrect classifications
+* Confusion matrix
+
+**Graphs** in JPG format, such as:
+* Confusion matrix
+* Training performance graph
+* Boxplot of probabilities
+
+This structure ensures organized storage and easy access to the results of each test.
+
+[Table of contentes](#table-of-contents)
+
