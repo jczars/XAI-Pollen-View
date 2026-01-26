@@ -15,7 +15,7 @@ To quickly run all tests, follow this menu:
 
 - [XAI-Pollen-View](#XAI-Pollen-View)
   - [Installation](#installation)
-  - [Workflow: Updating the Repository](Git-hub)
+  - [Workflow: Updating the Repository](#Git-hub)
 - [Usage](#usage)
   - [Phase 1](#phase-1)
   - [Phase 2](#phase-2)
@@ -105,7 +105,7 @@ To remove the project path:
 unset PYTHONPATH
 ```
 
-##Git Hub
+##Git hub
 **Workflow: Updating the Repository**
 
 To keep the repository up to date with your local changes, use the following commands in your terminal:
