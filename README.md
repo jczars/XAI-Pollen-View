@@ -282,3 +282,45 @@ This structure ensures organized storage and easy access to the results of each 
 
 [Table of contentes](#table-of-contents)
 
+## Phase 2
+**Phase 2**: Separate pollen into views (Equatorial and Polar) using pseudo-labeling.
+
+## Prepare the BI_5 Dataset
+The BI_5 dataset is the primary dataset used in this phase. It contains labeled and unlabeled images, essential for the pseudo-labeling and classification tasks.
+
+**Steps to Obtain and Prepare the Dataset**
+
+**1. Create the BD Folder:**
+
+Before downloading the dataset, ensure the BD folder exists in the project root directory. Use the following command to create it:
+
+```bash
+mkdir -p ./BD
+cd ./BD
+```
+
+**2. Download the Dataset:**
+
+Download the dataset directly using the link below. 
+
+```bash
+wget -O BI_Cr_5.zip "https://zenodo.org/records/14188979/files/BI_Cr_5.zip?download=1"
+
+```
+
+**3. Extracting the Dataset:**
+
+After downloading, extract the dataset into the ./BD/ directory:
+```bash
+unzip BI_Cr_5.zip
+```
+**4. Verify the Dataset:**
+
+After extraction, ensure that the dataset is correctly organized as described in the Project Folder Structure section. Check if the folder structure matches the expected layout for proper use in the project. [Project Folder Structure](#project-Folder-Structure)
+
+**5. Return to the Project's Root Directory:**
+
+After verifying the dataset, return to the project's root directory to proceed with the next steps:
+```bash
+cd ..
+```
