@@ -217,9 +217,17 @@ results/AT_densenet+cbam_exp/config_AT_cr_180225.xlsx
 **Execution**:
 
 Use the following command to run the fine-tuning script:
+Example with pre-trained DenseNet201
+
 ```bash
-python phase1/AT_DenseNet_CBAM_K10_xlsx.py results/phase1/AT_densenet+cbam_exp/config_AT_cr_180225.xlsx
+python phase1/AT_DenseNet_CBAM_K10_xlsx.py results/phase1/AT_Dn+CBAM_26/config_AT_cr_230126.xlsx
 ```
+
+Example with DenseNet201 + CBAM
+```bash
+python phase1/AT_DenseNet_CBAM_K10_xlsx.py results/phase1/AT_Dn+CBAM_26/config_AT_cr_230126.xlsx
+```
+
 **Failure Management**:
 
 During the tests, especially when using memory-intensive networks like DenseNet201, failures may occur due to full memory consumption. To address this, a spreadsheet with control variables tracks the progress of the tests, allowing for recovery.
