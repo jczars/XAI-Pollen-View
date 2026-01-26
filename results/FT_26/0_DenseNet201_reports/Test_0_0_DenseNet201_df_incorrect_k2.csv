@@ -1,0 +1,4 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+4,calicotome/Fab.C.vilX400wF(2016)(0)A-19.png,1,19,0.44513112,calicotome,vitis,Incorrect
+321,salvia/Lam.S.triX400wF(2191)(0)D-46.png,14,15,0.62035584,salvia,satureja,Incorrect
+382,vitis/Vit.V.viniX400wF(4980)(0)C-16.png,19,6,0.79905385,vitis,eucalyptus,Incorrect

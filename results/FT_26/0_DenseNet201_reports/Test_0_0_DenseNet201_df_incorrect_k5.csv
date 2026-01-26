@@ -1,0 +1,6 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+89,eucalyptus/Myr.E.camaX400wF(2962)(0)H-13.png,6,19,0.78552926,eucalyptus,vitis,Incorrect
+162,myrtus/IMG_3742-52.png,8,1,0.45038766,myrtus,calicotome,Incorrect
+289,oxalis/Oxa.O.pes.cX400wF(1738)(0)F-9.png,11,1,0.53512657,oxalis,calicotome,Incorrect
+330,sinapis/Bra.S.albX400wF(2150)(0)A-14.png,16,9,0.55866885,sinapis,olea,Incorrect
+364,thymbra/x40 f (7)-4.png,17,14,0.9570597,thymbra,salvia,Incorrect
