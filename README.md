@@ -15,6 +15,7 @@ To quickly run all tests, follow this menu:
 
 - [XAI-Pollen-View](#XAI-Pollen-View)
   - [Installation](#installation)
+  - [Workflow: Updating the Repository](#Workflow-Updating-the-Repository)
 - [Usage](#usage)
   - [Phase 1](#phase-1)
   - [Phase 2](#phase-2)
