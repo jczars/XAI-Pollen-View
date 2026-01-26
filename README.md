@@ -122,11 +122,14 @@ Add the modified files and save the changes with a descriptive message:
 ```bash
 git add .
 ```
-**3. Push to GitHub**
-
 **To commit with a message**
 ```bash
 git commit -m "feat: describe your implementation here"
+```
+**3. Push to GitHub**
+Upload your local commits to the remote repository:
+```bash
+git push origin main
 ```
 
 [Table of contentes](#table-of-contents)
