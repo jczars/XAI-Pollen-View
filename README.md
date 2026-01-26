@@ -15,7 +15,7 @@ To quickly run all tests, follow this menu:
 
 - [XAI-Pollen-View](#XAI-Pollen-View)
   - [Installation](#installation)
-  - [Workflow: Updating the Repository](#Workflow-Updating-the-Repository)
+  - [Workflow: Updating the Repository](Git-hub)
 - [Usage](#usage)
   - [Phase 1](#phase-1)
   - [Phase 2](#phase-2)
@@ -33,7 +33,7 @@ To quickly run all tests, follow this menu:
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 Follow the steps below to set up the environment and dependencies.
 
@@ -105,7 +105,8 @@ To remove the project path:
 unset PYTHONPATH
 ```
 
-## 🔄 Workflow: Updating the Repository
+##Git Hub
+**Workflow: Updating the Repository**
 
 To keep the repository up to date with your local changes, use the following commands in your terminal:
 
@@ -127,3 +128,5 @@ git add .
 ```bash
 git commit -m "feat: describe your implementation here"
 ```
+
+[Table of contentes](#table-of-contents)
