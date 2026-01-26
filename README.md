@@ -105,7 +105,7 @@ To remove the project path:
 unset PYTHONPATH
 ```
 
-##Git hub
+# Git hub
 **Workflow: Updating the Repository**
 
 To keep the repository up to date with your local changes, use the following commands in your terminal:
@@ -130,3 +130,8 @@ git commit -m "feat: describe your implementation here"
 ```
 
 [Table of contentes](#table-of-contents)
+
+# Usage
+
+## Phase 1
+### Preprocess
