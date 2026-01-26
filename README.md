@@ -13,7 +13,7 @@ To quickly run all tests, follow this menu:
 
 ## Table of Contents
 
-- [Pollen_classification_CBAM](#XAI-Pollen-View)
+- [XAI-Pollen-View](#XAI-Pollen-View)
   - [Installation](#installation)
 - [Usage](#usage)
   - [Phase 1](#phase-1)
@@ -30,21 +30,20 @@ To quickly run all tests, follow this menu:
   - [Description of Key Folders](#description-of-Key-Folders)
   - [Resources](#resources)
 
-# Installation
+---
 
-Follow the steps below to set up the project environment and dependencies.
+## ⚙️ Installation
 
+Follow the steps below to set up the environment and dependencies.
 
-**1. Create and activate the virtual environment**
-There are several ways to create a virtual environment. In this project, the conda package was used, but you can also choose other tools such as venv or virtualenv based on your preference.
+### 1. Create and Activate Virtual Environment
+We recommend using **Conda** for environment management:
 
-To create the virtual environment using conda, run the following command:
 ```bash
-conda create --name tfGpu python=3.10.13
-```
+# Create the environment
+conda create --name tfGpu python=3.10.13 -y
 
-**Activate the virtual environment**:
-```bash
+# Activate the environment
 conda activate tfGpu
 ```
 
@@ -61,11 +60,11 @@ pip install -r requirements.txt
 **4. Verify the Installation**
 After installing the dependencies, you can check if everything was set up correctly. Use the following commands to check the installed packages and the Python version:
 ```bash
-pip list
 python3 --version
+pip list | grep tensorflow
 
 ```
-5. Deactivate the Virtual Environment
+**5. Deactivate the Virtual Environment**
 Once you’re done working on the project, deactivate the virtual environment with the command:
 ```bash
 conda deactivate
@@ -105,5 +104,25 @@ To remove the project path:
 unset PYTHONPATH
 ```
 
+## 🔄 Workflow: Updating the Repository
 
+To keep the repository up to date with your local changes, use the following commands in your terminal:
 
+**1. Check for changes**
+Before committing, verify which files have been modified:
+```bash
+git status
+```
+
+**2. Stage and Commit**
+Add the modified files and save the changes with a descriptive message:
+**To add all changes**
+```bash
+git add .
+```
+**3. Push to GitHub**
+
+**To commit with a message**
+```bash
+git commit -m "feat: describe your implementation here"
+```
