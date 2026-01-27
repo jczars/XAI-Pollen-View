@@ -413,3 +413,120 @@ To execute the separation process, use the following command:
 ```bash
 python3 phase3/separated_test.py --config phase3/config_separated.yaml
 ```  
+### Generating Test Reports  
+
+To generate classification reports based on the test dataset, the script `reports_test_views.py` was executed using specific configuration files. A separate YAML file was created for each dataset.  
+
+### Configuration Files  
+- **Script**: `reports_test_views.py`  
+- **Example YAML File**: `config_test_views.yaml`  
+
+### Running the Script  
+To execute the report generation process, run:  
+```bash
+python3 phase3/reports_test_views.py --config phase3/config_test_views.yaml
+```  
+## Generating Test Reports  
+
+To generate classification reports based on the test dataset, the script `reports_test_views.py` was executed using specific configuration files. A separate YAML file was created for each dataset.  
+
+### Configuration Files  
+- **Script**: `reports_test_views.py`  
+- **Example YAML File**: `config_test_views.yaml`  
+
+### Running the Script  
+To execute the report generation process, run:  
+```bash
+python3 phase3/reports_test_views.py --config phase3/config_test_views.yaml
+```  
+
+### Generated Results  
+The following results are produced and saved in the “results/phase3/” folder: 
+
+- **Classification Report**  
+- **Confusion Matrix**  
+- **Boxplot**  
+- **Metrics**  
+- **Correct and Incorrect Classification DataFrames**:  
+  - `df_correct`: Contains correctly classified samples.  
+  - `df_incorrect`: Contains incorrectly classified samples.  
+
+# Results
+
+## Results of dataset separation by views
+This is an illustrative example and may not correspond to the current one. To check the most recent examples, please refer to the files:
+
+BD/.../df_qde_vistas.csv
+BD/.../data_summary.csv
+
+| Class       | Count | Equatorial | Polar |
+|-------------|-------|------------|-------|
+| asphodelus  | 4     | 2          | 2     |
+| calicotome  | 30    | -          | 30    |
+| castanea    | 21    | 21         | -     |
+| ceratonia   | 10    | 10         | -     |
+| ebenus      | 3     | 3          | -     |
+| erica       | 18    | 1          | 17    |
+| eucalyptus  | 17    | 1          | 16    |
+| ferula      | 8     | 5          | 3     |
+| myrtus      | 79    | -          | 79    |
+| olea        | 79    | 79         | -     |
+| origanum    | 17    | 12         | 5     |
+| oxalis      | 14    | -          | 14    |
+| pinus       | 3     | -          | 3     |
+| pistacia    | 3     | 3          | -     |
+| salvia      | 18    | 10         | 8     |
+| satureja    | 7     | 3          | 4     |
+| sinapis     | 20    | 20         | -     |
+| thymbra     | 14    | 5          | 9     |
+| urginea     | 11    | 11         | -     |
+| vitis       | 27    | 24         | 3     |
+
+
+[Table of contentes](#table-of-contents)
+
+## Classification report for DenseNet201 (k=1, Equatorial View)
+
+This section presents **illustrative results** obtained using the DenseNet201 classifier on the k=1-fold with **equatorial views**. The evaluation includes training performance metrics, a box plot of prediction probabilities, a confusion matrix, and a detailed classification report.
+
+
+### Prediction Confidence Analysis
+The boxplot below displays the **distribution of prediction probabilities** for correctly classified samples:
+
+![Boxplot of Prediction Probabilities](images/0_DenseNet201_EQUATORIAL_boxplot_k1.jpg)
+
+### Confusion Matrix
+The confusion matrix generated from the test dataset classification is shown below:
+
+![Confusion Matrix](images/0_DenseNet201_EQUATORIAL_confusion_matrix_k1.jpg)
+
+### Classification Report
+The table below presents detailed metrics for each class:
+
+| Class        | Precision  | Recall    | F1-Score  | Support |
+|--------------|-----------|-----------|-----------|---------|
+| asphodelus   | 1.00      | 1.00      | 1.00      | 2.0     |
+| castanea     | 1.00      | 1.00      | 1.00      | 21.0    |
+| ceratonia    | 0.75      | 0.90      | 0.82      | 10.0    |
+| ebenus       | 1.00      | 1.00      | 1.00      | 3.0     |
+| erica        | 1.00      | 1.00      | 1.00      | 1.0     |
+| eucalyptus   | 0.33      | 1.00      | 0.50      | 1.0     |
+| ferula       | 1.00      | 1.00      | 1.00      | 5.0     |
+| olea         | 1.00      | 1.00      | 1.00      | 79.0    |
+| origanum     | 1.00      | 0.92      | 0.96      | 12.0    |
+| pistacia     | 1.00      | 1.00      | 1.00      | 3.0     |
+| salvia       | 1.00      | 1.00      | 1.00      | 10.0    |
+| satureja     | 1.00      | 0.67      | 0.80      | 3.0     |
+| sinapis      | 1.00      | 1.00      | 1.00      | 20.0    |
+| thymbra      | 1.00      | 1.00      | 1.00      | 5.0     |
+| urginea      | 1.00      | 1.00      | 1.00      | 11.0    |
+| vitis        | 1.00      | 0.92      | 0.96      | 24.0    |
+| **Accuracy** | **0.98**  | **0.98**  | **0.98**  | **0.98** |
+| **Macro Avg**| **0.94**  | **0.96**  | **0.94**  | **210.0** |
+| **Weighted Avg** | **0.98** | **0.98** | **0.98** | **210.0** |
+
+
+4.5 **Summary**
+These are the tools used to interpret the test results.
+
+[Table of contentes](#table-of-contents)
