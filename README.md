@@ -285,7 +285,7 @@ This structure ensures organized storage and easy access to the results of each 
 ## Phase 2
 **Phase 2**: Separate pollen into views (Equatorial and Polar) using pseudo-labeling.
 
-## Prepare the BI_5 Dataset
+### Prepare the BI_5 Dataset
 The BI_5 dataset is the primary dataset used in this phase. It contains labeled and unlabeled images, essential for the pseudo-labeling and classification tasks.
 
 **Steps to Obtain and Prepare the Dataset**
@@ -324,3 +324,92 @@ After verifying the dataset, return to the project's root directory to proceed w
 ```bash
 cd ..
 ```
+### Running Pseudo-Labeling:
+After preparing the initial dataset BI_5, the next step is to train pre-trained networks with pseudo-labeling.
+
+**Main Scripts**:
+**Strategy 1**: pseudo_reload_train.py
+Path:
+./XAI-Pollen-View/phase2/pseudo_reload_train.py
+
+**Behavior:**
+
+During the first training session, named "time_step 0," a pre-trained network is loaded, fine-tuned using the DFT strategy, and trained with random initialization.
+For subsequent time_steps, the model from the previous time_step is reloaded and retrained.
+
+**Strategy 2**: pseudo_train.py
+Path:
+
+./XAI-Pollen-View/phase2/pseudo_train.py
+
+**Behavior**:
+
+All training sessions are initialized with random weights.
+
+**Recovery Script**:
+If the training process fails due to memory consumption or other issues, use the recovery script:
+
+pseudo_reload_train_recovery.py
+
+This script detects the last completed time_step and resumes training from that point.
+Stopping Rules for Pseudo-Labeling
+
+**Pseudo-labeling stops when**:
+The entire unlabeled dataset has been labeled.
+The pseudo-label selection phase does not identify any additional images from the unlabeled dataset.
+Thresholds used in the tests include 0.95, 0.99, and 0.995.
+
+**Execution Examples**:
+
+__Single Test__
+To execute a single test, specify the start_index and end_index parameters:
+```bash
+python3 phase2/pseudo_reload_train.py --path results/phase2/recports_cr/config_pseudo_label_pre_cr.xlsx --start_index 1 --end_index 1
+```
+This command will execute only test index 5.
+
+**All Tests**
+To execute all tests configured in the spreadsheet, starting from index 0:
+```bash
+python3 phase2/pseudo_reload_train.py --path results/phase2/recports_cr/config_pseudo_label_pre_cr.xlsx --start_index 0
+```
+**Recovery**
+To resume tests after a failure:
+```bash
+python3 phase2/pseudo_reload_train_recovery.py --path results/phase2/recports_cr/config_pseudo_label_pre_cr.xlsx --start_index 0
+```
+In this case, test 0 crashed! To restart the training we run the script above.
+
+**Expected Results**:
+
+The results are stored in the "Reports" folder where the spreadsheet is located. The folder naming convention follows the pattern: id_test, model_name, and reports.
+
+The output includes:
+
+1. **CSV** files containing detailed metrics and predictions.
+2. **Graphs** in JPG format, such as:
+* Confusion matrix
+* Training performance plot
+* Boxplot of probabilities
+* The results of the experiments are saved in the configuration spreadsheet. Example: config_pseudo_label_pre_cr.xls
+
+This structure ensures organized storage and easy access to the results of each test.
+
+[Table of contentes](#table-of-contents)
+
+## Phase 3  
+### Separating the Test Dataset into Views  
+
+To partition the test dataset into different views, the following steps were performed:  
+
+- **Pseudo Labeling**: Applied to segment the test dataset.  
+- **Script Used**: `separated_test.py`  
+- **Configuration File**: `config_separated.yaml`  
+- **Results Directory**: The processed data was saved in the `BD` directory.  
+- **Example Path**: `BD/CPD1_TEST_VIEW`  
+
+### Running the Script  
+To execute the separation process, use the following command:  
+```bash
+python3 phase3/separated_test.py --config phase3/config_separated.yaml
+```  
