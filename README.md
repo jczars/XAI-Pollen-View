@@ -24,10 +24,10 @@ To quickly run all tests, follow this menu:
   - [Results of Phase 3](#Results-of-dataset-separation-by-views)
 - [Discussion](#Discussion)
   - [Consolidated results](#Consolidated-results)
-  - [Analysis of the Consolidated Confusion Matrix](#Analysis-of-the-Consolidated-Confusion-Matrix)
   - [Test the Wilcoxon](#Test-wilcoxon)
   - [Compare metrics](#compare-metrics)
-  - [Interpretability](#Interpretability)
+- [Interpretability](#Interpretability)
+  - [Analysis of the Consolidated Confusion Matrix](#Analysis-of-the-Consolidated-Confusion-Matrix)
 - [Project Folder Structure](#project-Folder-Structure)
   - [Description of Key Folders](#description-of-Key-Folders)
   - [Resources](#resources)
@@ -661,6 +661,9 @@ python discussion/consolidated_reports.py --config discussion/config_consolidade
 ```
 [Table of contentes](#table-of-contents)
 
+
+# Interpretability
+
 ## Analysis of the Consolidated Confusion Matrix
 
 This section presents the analysis of the **consolidated confusion matrix** generated in the experiment.  
@@ -752,3 +755,10 @@ This analysis provides **direct and interpretable evidence** for the discussion 
 
 All results presented in this section are automatically generated from the consolidated confusion matrix using a configuration-driven analysis pipeline, ensuring reproducibility and consistency across experiments.
 
+**Example of Execution:**
+
+To run the script, ensure that the configuration file (`config_matrix_analyse.yaml`) is correctly configured, then execute the following command:
+
+```bash
+python discussion/reports_matrix_analyze.py --config discussion/config_matrix_analyse.yaml 
+```
