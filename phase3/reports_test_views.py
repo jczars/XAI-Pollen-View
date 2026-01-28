@@ -9,6 +9,14 @@ This script performs the **evaluation of pre-trained deep learning models**
 for image classification on a test dataset organized using *k-fold cross-
 validation* and separated into two distinct views: **EQUATORIAL** and **POLAR**.
 
+The evaluation framework is **architecture-agnostic**, supporting both
+convolutional neural networks (CNNs) and Vision Transformer (ViT) models,
+including (but not limited to):
+
+- MobileNet variants
+- DenseNet architectures
+- Vision Transformer models (ViT_b16)
+
 For each fold (k), the algorithm:
 - Loads the corresponding trained model checkpoint (`*_bestLoss_k.keras`);
 - Performs inference on the test dataset;
@@ -31,6 +39,18 @@ generated and saved to disk:
 - A consolidated Excel file containing performance metrics
   (accuracy, precision, recall, F-score, and Cohen’s kappa),
   organized by view in separate sheets
+
+Model Loading Strategy
+----------------------
+The script automatically detects the model architecture based on the model
+name and applies the appropriate loading strategy:
+
+- CNN-based models are loaded using the standard Keras loader.
+- Vision Transformer models are loaded with `safe_mode=False` and custom
+  objects enabled to correctly deserialize internal Lambda layers.
+
+This design ensures compatibility across different deep learning paradigms
+without modifying the evaluation pipeline.
 
 Results Location
 ----------------
@@ -71,8 +91,8 @@ EQUATORIAL and POLAR views enables a detailed analysis of view-dependent
 classification performance.
 
 ===============================================================================
-"""
 
+"""
 
 # Add the current directory to the PYTHONPATH
 import argparse
@@ -338,6 +358,43 @@ def gen_views(params, model, categories, k, path_save, nm_model, view):
 
         print(f"✅ Relatório salvo em: {save_dir}")
 
+def load_trained_model(model_path, model_name):
+    """
+    Generic model loader supporting CNNs and Vision Transformers.
+
+    Parameters
+    ----------
+    model_path : str
+        Full path to the saved Keras model.
+    model_name : str
+        Name of the model architecture (e.g., MobileNet, DenseNet201, ViT_b16).
+
+    Returns
+    -------
+    keras.Model
+        Loaded Keras model.
+    """
+
+    # Vision Transformer (vit_keras)
+    if "vit" in model_name.lower():
+        try:
+            from vit_keras import vit
+            print("[INFO] Loading Vision Transformer model with safe_mode=False")
+            return models.load_model(
+                model_path,
+                safe_mode=False,
+                custom_objects={"vit": vit}
+            )
+        except ImportError as e:
+            raise ImportError(
+                "vit_keras is required to load ViT models. "
+                "Please install it before running this script."
+            ) from e
+
+    # Default CNN models (MobileNet, DenseNet, etc.)
+    print("[INFO] Loading CNN-based model")
+    return models.load_model(model_path)
+
     
 def run(params):
     """
@@ -385,8 +442,9 @@ def run(params):
         path = f"{path_model}{nm_model}_bestLoss_{k}.keras"
         print(f"\n[INFO] path_model: {path}\n")
         model=None
-        model = models.load_model(path)
-        model.summary()  # Print model summary
+        model = load_trained_model(path, nm_model)
+        model.summary()
+
 
         # Reports views
         gen_views(params, model, categories, k, path_save, nm_model, "EQUATORIAL")

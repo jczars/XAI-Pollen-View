@@ -450,14 +450,14 @@ CPD1_TEST_A200/
 
 ### Generating Test Reports (EQUATORIAL and POLAR Views)
 
-This step evaluates pre-trained deep learning models on the test dataset and generates detailed classification reports by view.
-The test data are organized using k-fold cross-validation and separated into two complementary views:
+This stage evaluates pre-trained deep learning models on the test dataset and generates comprehensive classification reports with a view-based analysis.
+The test data are organized using k-fold cross-validation and separated into two complementary image views:
 
 **EQUATORIAL**
 
 **POLAR**
 
-For each fold and each view, the script performs inference, computes classification metrics, and produces both quantitative and visual evaluation outputs.
+For each fold (k = 1 to 10) and for each view, the script performs model inference, computes standard classification metrics, and produces both quantitative and visual evaluation outputs.
 
 ### Script and Configuration
 
@@ -465,7 +465,7 @@ For each fold and each view, the script performs inference, computes classificat
 
 **Configuration File**: config_test_views.yaml
 
-A separate YAML configuration file is defined for each test dataset, specifying paths to the trained models, test data, and output directory.
+A dedicated YAML configuration file is defined for each test dataset, specifying the paths to the trained models, test data directories, label information, and the output directory.
 
 ### Running the Script
 
@@ -476,14 +476,14 @@ python3 phase3/reports_test_views.py --config phase3/config_test_views.yaml
 
 ### Output Location and Structure
 
-All generated results are automatically saved in the directory defined by the save_dir parameter in the YAML file.
+All generated results are automatically saved in the directory defined by the **save_dir** parameter in the YAML file.
 
-Example output path:
+**Example output path:**
 ```bash
 results/phase3/CPD1_TEST_A200/
 ```
 
-Inside this directory, the results are organized as follows:
+Within this directory, the results are organized as follows:
 ```bash
 CPD1_TEST_A200/
  ├── 1_DenseNet201/
@@ -499,8 +499,9 @@ CPD1_TEST_A200/
       └── (same structure as the EQUATORIAL view)
 
 ```
+The separation into EQUATORIAL and POLAR directories enables a detailed analysis of view-dependent classification performance.
 
-Generated Results
+### Generated Results
 
 For each model, fold, and view, the following outputs are produced:
 
