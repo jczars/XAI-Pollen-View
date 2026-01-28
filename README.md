@@ -398,8 +398,6 @@ This structure ensures organized storage and easy access to the results of each 
 [Table of contentes](#table-of-contents)
 
 ## Phase 3  
-### Separating the Test Dataset into Views  
-
 ### Separating the Test Dataset into Views
 
 This step aims to partition the **test dataset** into distinct image views
@@ -422,7 +420,13 @@ The following steps are performed:
 #### Implementation Details
 - **Script**: `phase3/separated_test.py`  
 - **Configuration File**: `phase3/config_separated.yaml`  
-- **Output Directory**: `BD/`  
+- **Output Directory**: `BD/` 
+
+### Running the Script  
+To execute the separation process, use the following command:  
+```bash
+python3 phase3/separated_test.py --config phase3/config_separated.yaml
+```  
 
 For the experiments reported in this work, the results are stored in:
 
