@@ -685,7 +685,7 @@ This analysis evaluates the number of misclassifications for each **true class**
 | satureja | 5 |
 | vitis | 4 |
 
-**Observations**  
+**Interpretation**  
 The class **olea** exhibits the highest number of misclassifications when acting as the true label, indicating that it is the most problematic class in terms of ground-truth errors.
 
 ---
