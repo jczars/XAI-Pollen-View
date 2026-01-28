@@ -24,7 +24,7 @@ To quickly run all tests, follow this menu:
   - [Results of Phase 3](#Results-of-dataset-separation-by-views)
 - [Discussion](#Discussion)
   - [Consolidated results](#Consolidated-results)
-  - [Analysis of the Consolidated Confusion Matrix] (#Analysis-of-the-Consolidated-Confusion-Matrix)
+  - [Analysis of the Consolidated Confusion Matrix](#Analysis-of-the-Consolidated-Confusion-Matrix)
   - [Test the Wilcoxon](#Test-wilcoxon)
   - [Compare metrics](#compare-metrics)
   - [Interpretability](#Interpretability)
