@@ -1,3 +1,79 @@
+"""
+===============================================================================
+Model Evaluation and Report Generation for EQUATORIAL and POLAR Views
+===============================================================================
+
+Description
+-----------
+This script performs the **evaluation of pre-trained deep learning models**
+for image classification on a test dataset organized using *k-fold cross-
+validation* and separated into two distinct views: **EQUATORIAL** and **POLAR**.
+
+For each fold (k), the algorithm:
+- Loads the corresponding trained model checkpoint (`*_bestLoss_k.keras`);
+- Performs inference on the test dataset;
+- Computes standard classification performance metrics;
+- Generates quantitative reports and visual analyses for each view.
+
+The evaluation process is automatically executed for:
+- 10 folds (k = 1 to 10);
+- Two image views: EQUATORIAL and POLAR.
+
+Generated Outputs
+-----------------
+For each combination of model, fold, and view, the following outputs are
+generated and saved to disk:
+
+- Classification report (CSV)
+- Confusion matrix (CSV and JPG image)
+- Prediction confidence boxplot (JPG)
+- CSV files containing correctly and incorrectly classified samples
+- A consolidated Excel file containing performance metrics
+  (accuracy, precision, recall, F-score, and Cohen’s kappa),
+  organized by view in separate sheets
+
+Results Location
+----------------
+All results are automatically stored in the directory defined by the
+`save_dir` parameter in the YAML configuration file.
+
+Example of final output directory:
+
+/media/jczars/4C22F02A22F01B22/Pollen-Classification-CBAM/results/phase3/CPD1_TEST_A200/
+
+This directory corresponds to the evaluation of the **CPD1_TEST_A200**
+test dataset.
+
+Directory Structure
+-------------------
+Within this directory, the results are organized as follows:
+
+results/
+ └── phase3/
+     └── CPD1_TEST_A200/
+         ├── 1_DenseNet201/
+         │    └── 1_DenseNet201_metrics.xlsx
+         ├── 1_DenseNet201_EQUATORIAL/
+         │    ├── *_class_reports_k*.csv
+         │    ├── *_confusion_matrix_k*.csv
+         │    ├── *_confusion_matrix_k*.jpg
+         │    ├── *_boxplot_k*.jpg
+         │    ├── *_df_correct_k*.csv
+         │    └── *_df_incorrect_k*.csv
+         └── 1_DenseNet201_POLAR/
+              └── (same structure as the EQUATORIAL view)
+
+Note
+----
+Readers should consult the directories above to access the complete set of
+evaluation results produced by the algorithm. The separation into
+EQUATORIAL and POLAR views enables a detailed analysis of view-dependent
+classification performance.
+
+===============================================================================
+"""
+
+
 # Add the current directory to the PYTHONPATH
 import argparse
 import csv

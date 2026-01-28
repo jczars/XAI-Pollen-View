@@ -1,0 +1,5 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+0,calicotome/Fab.C.vilX400wF(2018)(0)C-16.png,1,9,0.7657509,calicotome,olea,Incorrect
+34,ebenus/Fab.E.creX400wF(694)(0)B-2.png,4,9,0.958426,ebenus,olea,Incorrect
+150,sinapis/Bra.S.albX400wF(2151)(0)B-18.png,16,9,0.48340705,sinapis,olea,Incorrect
+185,vitis/Vit.V.viniX400wF(4979)(0)B-16.png,19,0,0.7439778,vitis,asphodelus,Incorrect

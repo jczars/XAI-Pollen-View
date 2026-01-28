@@ -1,0 +1,5 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+43,olea/Ole.O.euroX400wF(4261)(0)A-38.png,9,16,0.52945495,olea,sinapis,Incorrect
+121,origanum/Lam.O.micX400wF(884)(0)A-9.png,10,3,0.9935819,origanum,ceratonia,Incorrect
+162,sinapis/Bra.S.albX400wF(2152)(0)C-22.png,16,9,0.8987486,sinapis,olea,Incorrect
+174,thymbra/Lam.T.capX400wF(1031)(0)C-9.png,17,10,0.53550816,thymbra,origanum,Incorrect

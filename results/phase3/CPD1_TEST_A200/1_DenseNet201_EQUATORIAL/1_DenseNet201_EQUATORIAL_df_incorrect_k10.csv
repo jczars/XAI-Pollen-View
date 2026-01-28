@@ -1,0 +1,2 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+0,calicotome/Fab.C.vilX400wF(2016)(0)A-21.png,1,19,0.9569812,calicotome,vitis,Incorrect

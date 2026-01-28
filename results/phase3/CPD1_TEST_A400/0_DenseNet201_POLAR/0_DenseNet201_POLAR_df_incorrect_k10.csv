@@ -1,0 +1,5 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+8,calicotome/Fab.C.vilX400wF(2019)(0)D-21.png,1,11,0.973682,calicotome,oxalis,Incorrect
+11,calicotome/Fab.C.vilX400wF(2019)(0)D-29.png,1,11,0.91021883,calicotome,oxalis,Incorrect
+30,ceratonia/Fab.C.silX400wF(479)(0)E-15.png,3,10,0.7825404,ceratonia,origanum,Incorrect
+103,myrtus/IMG_3738-53.png,8,2,0.6416273,myrtus,castanea,Incorrect

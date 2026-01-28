@@ -1,0 +1,6 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+29,ceratonia/Fab.C.silX400wF(480)(0)F-7.png,3,9,0.6301065,ceratonia,olea,Incorrect
+30,ceratonia/Fab.C.silX400wF(481)(0)G-11.png,3,1,0.57464397,ceratonia,calicotome,Incorrect
+82,olea/Ole.O.euroX400wF(4265)(0)E-135.png,9,17,0.41035306,olea,thymbra,Incorrect
+95,olea/Ole.O.euroX400wF(4265)(0)E-97.png,9,16,0.92997617,olea,sinapis,Incorrect
+137,satureja/Lam.S.thyX400wF(942)(935)B-1.png,15,14,0.9769702,satureja,salvia,Incorrect

@@ -448,43 +448,31 @@ CPD1_TEST_A200/
 └── k10/
 ```
 
-### Generating Test Reports  
+### Generating Test Reports (EQUATORIAL and POLAR Views)
 
-To generate classification reports based on the test dataset, the script `reports_test_views.py` was executed using specific configuration files. A separate YAML file was created for each dataset.  
+This step evaluates pre-trained deep learning models on the test dataset and generates detailed classification reports by view.
+The test data are organized using k-fold cross-validation and separated into two complementary views:
 
-### Configuration Files  
-- **Script**: `reports_test_views.py`  
-- **Example YAML File**: `config_test_views.yaml`  
+**EQUATORIAL**
 
-### Running the Script  
-To execute the report generation process, run:  
+**POLAR**
+
+For each fold and each view, the script performs inference, computes classification metrics, and produces both quantitative and visual evaluation outputs.
+
+### Script and Configuration
+
+**Script**: reports_test_views.py
+
+**Configuration File**: config_test_views.yaml
+
+A separate YAML configuration file is defined for each test dataset, specifying paths to the trained models, test data, and output directory.
+
+### Running the Script
+
+To generate the evaluation reports, execute:
 ```bash
 python3 phase3/reports_test_views.py --config phase3/config_test_views.yaml
-```  
-## Generating Test Reports  
-
-To generate classification reports based on the test dataset, the script `reports_test_views.py` was executed using specific configuration files. A separate YAML file was created for each dataset.  
-
-### Configuration Files  
-- **Script**: `reports_test_views.py`  
-- **Example YAML File**: `config_test_views.yaml`  
-
-### Running the Script  
-To execute the report generation process, run:  
-```bash
-python3 phase3/reports_test_views.py --config phase3/config_test_views.yaml
-```  
-
-### Generated Results  
-The following results are produced and saved in the “results/phase3/” folder: 
-
-- **Classification Report**  
-- **Confusion Matrix**  
-- **Boxplot**  
-- **Metrics**  
-- **Correct and Incorrect Classification DataFrames**:  
-  - `df_correct`: Contains correctly classified samples.  
-  - `df_incorrect`: Contains incorrectly classified samples.  
+```
 
 # Results
 

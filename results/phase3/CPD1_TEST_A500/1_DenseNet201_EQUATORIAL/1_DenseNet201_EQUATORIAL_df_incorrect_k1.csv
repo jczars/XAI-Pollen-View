@@ -1,0 +1,6 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+31,ceratonia/Fab.C.silX400wF(481)(0)G-12.png,3,6,0.90002364,ceratonia,eucalyptus,Incorrect
+123,origanum/Lam.O.micX400wF(884)(0)A-2.png,10,3,0.9416263,origanum,ceratonia,Incorrect
+149,satureja/Lam.S.thyX400wF(947)(0)H-4.png,15,3,0.9954325,satureja,ceratonia,Incorrect
+155,sinapis/Bra.S.albX400wF(2152)(0)C-4.png,16,9,0.9714668,sinapis,olea,Incorrect
+187,vitis/Vit.V.viniX400wF(4978)(0)A-24.png,19,2,0.9389631,vitis,castanea,Incorrect

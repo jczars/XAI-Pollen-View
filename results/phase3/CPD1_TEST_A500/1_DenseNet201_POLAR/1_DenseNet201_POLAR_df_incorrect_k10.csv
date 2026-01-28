@@ -1,0 +1,4 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+30,ceratonia/Fab.C.silX400wF(479)(0)E-15.png,3,6,0.952815,ceratonia,eucalyptus,Incorrect
+103,myrtus/IMG_3738-53.png,8,1,0.90947115,myrtus,calicotome,Incorrect
+149,olea/Ole.O.euroX400wF(4265)(0)E-208.png,9,6,0.48131686,olea,eucalyptus,Incorrect
