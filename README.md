@@ -474,6 +474,59 @@ To generate the evaluation reports, execute:
 python3 phase3/reports_test_views.py --config phase3/config_test_views.yaml
 ```
 
+### Output Location and Structure
+
+All generated results are automatically saved in the directory defined by the save_dir parameter in the YAML file.
+
+Example output path:
+```bash
+results/phase3/CPD1_TEST_A200/
+```
+
+Inside this directory, the results are organized as follows:
+```bash
+CPD1_TEST_A200/
+ ├── 1_DenseNet201/
+ │    └── 1_DenseNet201_metrics.xlsx
+ ├── 1_DenseNet201_EQUATORIAL/
+ │    ├── *_class_reports_k*.csv
+ │    ├── *_confusion_matrix_k*.csv
+ │    ├── *_confusion_matrix_k*.jpg
+ │    ├── *_boxplot_k*.jpg
+ │    ├── *_df_correct_k*.csv
+ │    └── *_df_incorrect_k*.csv
+ └── 1_DenseNet201_POLAR/
+      └── (same structure as the EQUATORIAL view)
+
+```
+
+Generated Results
+
+For each model, fold, and view, the following outputs are produced:
+
+- **Classification Reports** (CSV)
+
+- **Confusion Matrices** (CSV and JPG)
+
+- **Prediction Confidence Boxplots** (JPG)
+
+- **Performance Metrics** (Excel file):
+
+-- Accuracy
+
+-- Precision
+-- Recall
+
+-- F-score
+
+-- Cohen’s kappa
+
+- **Correct and Incorrect Classification DataFrames:**
+
+-- df_correct: Correctly classified samples
+
+-- df_incorrect: Incorrectly classified samples
+
 # Results
 
 ## Results of dataset separation by views
