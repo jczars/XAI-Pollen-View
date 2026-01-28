@@ -646,6 +646,7 @@ A YAML configuration file (e.g., config_consolidaded.yaml) defining the paramete
 
 * class_report_test_0_DenseNet201.csv
 * consolidated_boxplot_correct.png
+* consolidated_classification_report.csv
 * consolidated_confusion_matrix.csv
 * consolidated_confusion_matrix.png
 * consolidated_df_correct.csv

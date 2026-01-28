@@ -589,28 +589,45 @@ def saved(folder):
     print(f"Automated save directory: {save_dir}")
     return save_dir  # Return the directory for future use
 
+import os
+
 def extract_test_info(folder_path):
     """
-    Extracts the test id and model name from the folder path.
-    0_DenseNet201_EQUATORIAL_class_reports_k1.csv
+    Extracts the test id, model name, and view from a folder path.
 
-    Parameters:
-        folder_path (str): Path to the folder containing the test name.
+    Expected folder name format:
+        <test_id>_<model_name>_<view>
 
-    Returns:
-        tuple: test id and model name as strings.
+    Examples:
+        0_VIT_B16_EQUATORIAL
+        1_DenseNet201_POLAR
+        2_MobileNetV3_Large_EQUATORIAL
+
+    Parameters
+    ----------
+    folder_path : str
+        Path to the folder.
+
+    Returns
+    -------
+    tuple
+        (test_id, model_name, view)
     """
-    folder_name = os.path.basename(folder_path.rstrip('/'))  # Remove the final slash and get the folder name
-    parts = folder_name.split('_')  # Split the folder name at the first occurrence of "_"
-    
-    # Ensure the folder name is correctly structured and split
-    if len(parts) >= 3:
-        test_id = parts[0]  # The first part is the test_id
-        model_name = parts[1].split('_')[0]  # The second part is the model name (before any subsequent '_')
-        view = parts[2].split('_')[0]  # The second part is the model name (before any subsequent '_')
-        return test_id, model_name, view
-    else:
-        raise ValueError(f"The folder name '{folder_name}' does not match the expected format.")
+    folder_name = os.path.basename(folder_path.rstrip('/'))
+
+    parts = folder_name.split('_')
+
+    if len(parts) < 3:
+        raise ValueError(
+            f"The folder name '{folder_name}' does not match the expected format "
+            "'<test_id>_<model_name>_<view>'."
+        )
+
+    test_id = parts[0]
+    view = parts[-1]                  # Always last
+    model_name = '_'.join(parts[1:-1])  # Everything in between
+
+    return test_id, model_name, view
 
 def run(folder, normalize=False):
     save_dir = saved(folder)

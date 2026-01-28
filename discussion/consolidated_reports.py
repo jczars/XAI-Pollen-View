@@ -36,7 +36,7 @@ def run(config):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run data augmentation with specified configuration.")
-    parser.add_argument("--config", type=str, default="discussion/config_consolidaded.yaml", 
+    parser.add_argument("--config", type=str, default="discussion/config_consolidaded_a200.yaml", 
                         help="Path to the configuration YAML file.")
     args = parser.parse_args()
 

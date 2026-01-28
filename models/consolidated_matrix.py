@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, cohen_kappa_score, classification_report
 
+
+
 def sum_and_plot_confusion_matrices(folder_path, output_csv_path, output_image_path, normalize=False):
     """
     Reads all confusion matrix CSV files with a specific naming pattern in a folder, sums them, 
@@ -136,34 +138,6 @@ def classification_report_from_conf_matrix(conf_matrix_df):
     # Return the classification report DataFrame
     return class_report_df
 
-
-def performance_report_pd0(arr, classes, save_dir, id_test, nm_model):
-  mat_df=pd.DataFrame(columns= ['Classes','Accuracy', 'Precision', 'Recall', 'F1-Score', 'Support'])
-  cr = dict()
-  # col=number of class
-  col=len(arr)
-  support_sum = 0
-  for i in range(col):
-    vertical_sum= sum([arr[j][i] for j in range(col)])
-    horizontal_sum= sum(arr[i])
-    #https://stats.stackexchange.com/questions/312780/why-is-accuracy-not-the-best-measure-for-assessing-classification-models
-    a = round(arr[i][i] / horizontal_sum, 2)
-    p = round(arr[i][i] / vertical_sum, 2)
-    r = round(arr[i][i] / horizontal_sum, 2)
-    f = round((2 * p * r) / (p + r), 2)
-    s = horizontal_sum
-    row=[classes[i],a,p,r,f,s]
-    support_sum+=s
-    cr[i]=row
-    mat_df.loc[i]=row
-
-    # Salva o relatório de classificação
-    
-    df_report = pd.DataFrame(mat_df)
-    if not (save_dir == ''):
-        df_report.to_csv(save_dir+'class_report_test_'+str(id_test)+'_'+nm_model+'.csv', index=True)
-  return mat_df
-
 def performance_report_from_df(conf_matrix_df, save_dir, folder_path):
     """
     Gera um relatório de métricas a partir de um DataFrame de matriz de confusão.
@@ -239,26 +213,39 @@ def saved(folder):
     print(f"Automated save directory: {save_dir}")
     return save_dir  # Return the directory for future use
 
+
 def extract_test_info(folder_path):
     """
     Extracts the test id and model name from the folder path.
 
-    Parameters:
-        folder_path (str): Path to the folder containing the test name.
+    Expected folder name format:
+        <test_id>_<model_name>_reports
 
-    Returns:
-        tuple: test id and model name as strings.
+    Parameters
+    ----------
+    folder_path : str
+        Path to the folder containing the test name.
+
+    Returns
+    -------
+    tuple
+        (test_id, model_name)
     """
-    folder_name = os.path.basename(folder_path.rstrip('/'))  # Remove the final slash and get the folder name
-    parts = folder_name.split('_', 1)  # Split the folder name at the first occurrence of "_"
-    
-    # Ensure the folder name is correctly structured and split
-    if len(parts) >= 2:
-        test_id = parts[0]  # The first part is the test_id
-        model_name = parts[1].split('_')[0]  # The second part is the model name (before any subsequent '_')
-        return test_id, model_name
-    else:
-        raise ValueError(f"The folder name '{folder_name}' does not match the expected format.")
+    folder_name = os.path.basename(folder_path.rstrip('/'))
+
+    if not folder_name.endswith("_reports"):
+        raise ValueError(
+            f"The folder name '{folder_name}' does not end with '_reports'."
+        )
+
+    # Remove the fixed suffix "_reports"
+    base_name = folder_name[:-len("_reports")]
+
+    # Split only once: test_id | model_name
+    test_id, model_name = base_name.split("_", 1)
+
+    return test_id, model_name
+
 
 def run(folder, normalize=False):
     """
