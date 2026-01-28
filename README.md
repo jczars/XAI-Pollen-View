@@ -654,7 +654,7 @@ A YAML configuration file (e.g., config_consolidaded.yaml) defining the paramete
 
 **Example of Execution**:
 
-Before running the script, ensure that the configuration file *(config_consolidaded.yaml)* is properly configured. Then execute:
+Before running the script, ensure that the configuration file **(config_consolidaded.yaml)** is properly configured. Then execute:
 
 ```bash
 python discussion/consolidated_reports.py --config discussion/config_consolidaded.yaml
