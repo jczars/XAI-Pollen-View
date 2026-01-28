@@ -1,0 +1,23 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ vit-b16 (Functional)        (None, 768)               85798656  
+                                                                 
+ flatten (Flatten)           (None, 768)               0         
+                                                                 
+ batch_normalization (Batch  (None, 768)               3072      
+ Normalization)                                                  
+                                                                 
+ dense (Dense)               (None, 11)                8459      
+                                                                 
+ batch_normalization_1 (Bat  (None, 11)                44        
+ chNormalization)                                                
+                                                                 
+ dense_1 (Dense)             (None, 20)                240       
+                                                                 
+=================================================================
+Total params: 85810471 (327.34 MB)
+Trainable params: 85808913 (327.34 MB)
+Non-trainable params: 1558 (6.09 KB)
+_________________________________________________________________

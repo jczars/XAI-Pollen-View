@@ -1,0 +1,33 @@
+Unnamed: 0,file,y_true,y_pred,confidence,true_label,predicted_label,status
+9,calicotome/Fab.C.vilX400wF(2018)(0)C-6.png,1,11,0.59534746,calicotome,oxalis,Incorrect
+56,eucalyptus/Myr.E.camaX400wF(1869)(0)D-1.png,6,5,0.61380607,eucalyptus,erica,Incorrect
+211,thymbra/x40 f (7)-4.png,17,14,0.66340154,thymbra,salvia,Incorrect
+7,calicotome/Fab.C.vilX400wF(2018)(0)C-22.png,1,6,0.4998151,calicotome,eucalyptus,Incorrect
+51,eucalyptus/Myr.E.camaX400wF(1866)(0)A-8.png,6,19,0.49808678,eucalyptus,vitis,Incorrect
+119,myrtus/IMG_3738-53.png,8,6,0.53311056,myrtus,eucalyptus,Incorrect
+188,satureja/Lam.S.thyX400wF(941)(937)A-8.png,15,17,0.78502685,satureja,thymbra,Incorrect
+190,satureja/Lam.S.thyX400wF(944)(940)E-19.png,15,17,0.3308626,satureja,thymbra,Incorrect
+7,calicotome/Fab.C.vilX400wF(2017)(0)B-20.png,1,16,0.46731785,calicotome,sinapis,Incorrect
+61,eucalyptus/Myr.E.camaX400wF(1870)(0)E-5.png,6,1,0.4084917,eucalyptus,calicotome,Incorrect
+125,myrtus/IMG_3738-139.png,8,6,0.6571171,myrtus,eucalyptus,Incorrect
+172,oxalis/Oxa.O.pes.cX400wF(1734)(0)B-8.png,11,16,0.7386205,oxalis,sinapis,Incorrect
+57,eucalyptus/Myr.E.camaX400wF(1872)(0)G-2.png,6,17,0.3649683,eucalyptus,thymbra,Incorrect
+69,eucalyptus/Myr.E.camaX400wF(2964)(0)J-12.png,6,7,0.5337448,eucalyptus,ferula,Incorrect
+82,ferula/Api.F.comX400wF(2135)(0)A-7.png,7,6,0.847985,ferula,eucalyptus,Incorrect
+193,satureja/Lam.S.thyX400wF(941)(937)A-4.png,15,10,0.44196022,satureja,origanum,Incorrect
+8,calicotome/Fab.C.vilX400wF(2018)(0)C-18.png,1,11,0.786835,calicotome,oxalis,Incorrect
+9,calicotome/Fab.C.vilX400wF(2018)(0)C-3.png,1,6,0.8671917,calicotome,eucalyptus,Incorrect
+35,erica/Eri.E.maniX400wF(5356)(0)B-12.png,5,8,0.5873908,erica,myrtus,Incorrect
+43,erica/Eri.E.maniX400wF(5361)(0)G-14.png,5,17,0.7241462,erica,thymbra,Incorrect
+68,eucalyptus/Myr.E.camaX400wF(2962)(0)H-27.png,6,8,0.82083833,eucalyptus,myrtus,Incorrect
+164,origanum/Lam.O.micX400wF(885)(0)B-12.png,10,17,0.59224415,origanum,thymbra,Incorrect
+196,satureja/Lam.S.thyX400wF(947)(0)H-3.png,15,17,0.43117836,satureja,thymbra,Incorrect
+0,asphodelus/Asp.A.ramX400wF(1988)(0)E-2.png,0,11,0.69606674,asphodelus,oxalis,Incorrect
+3,calicotome/Fab.C.vilX400wF(2016)(0)A-10.png,1,11,0.8250645,calicotome,oxalis,Incorrect
+6,calicotome/Fab.C.vilX400wF(2018)(0)C-15.png,1,17,0.2243083,calicotome,thymbra,Incorrect
+54,eucalyptus/Myr.E.camaX400wF(1868)(0)C-12.png,6,17,0.5618177,eucalyptus,thymbra,Incorrect
+165,olea/Ole.O.euroX400wF(4265)(0)E-168.png,9,6,0.69634354,olea,eucalyptus,Incorrect
+2,calicotome/Fab.C.vilX400wF(2016)(0)A-2.png,1,19,0.6713748,calicotome,vitis,Incorrect
+6,calicotome/Fab.C.vilX400wF(2018)(0)C-11.png,1,6,0.810939,calicotome,eucalyptus,Incorrect
+5,calicotome/Fab.C.vilX400wF(2018)(0)C-9.png,1,11,0.7417345,calicotome,oxalis,Incorrect
+58,eucalyptus/Myr.E.camaX400wF(1872)(0)G-4.png,6,8,0.7758778,eucalyptus,myrtus,Incorrect

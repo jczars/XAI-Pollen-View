@@ -1,0 +1,4 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+55,ceratonia/Fab.C.silX400wF(475)(0)A-16.png,3,19,0.70349085,ceratonia,vitis,Incorrect
+350,sinapis/Bra.S.albX400wF(2151)(0)B-2.png,16,11,0.29024795,sinapis,oxalis,Incorrect
+354,sinapis/Bra.S.albX400wF(2152)(0)C-5.png,16,9,0.82274425,sinapis,olea,Incorrect
