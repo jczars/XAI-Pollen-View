@@ -430,7 +430,7 @@ For the experiments reported in this work, the results are stored in:
 BD/CPD1_TEST_A200/
 ```
 The internal directory structure is organized as follows:
-
+```bash
 CPD1_TEST_A200/
 ├── k1/
 │   ├── EQUATORIAL/
@@ -442,6 +442,7 @@ CPD1_TEST_A200/
 │   └── POLAR/
 ├── ...
 └── k10/
+```
 
 ### Generating Test Reports  
 
