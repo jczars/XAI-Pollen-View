@@ -1,0 +1,6 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+7,calicotome/Fab.C.vilX400wF(2018)(0)C-22.png,1,6,0.4998151,calicotome,eucalyptus,Incorrect
+51,eucalyptus/Myr.E.camaX400wF(1866)(0)A-8.png,6,19,0.49808678,eucalyptus,vitis,Incorrect
+119,myrtus/IMG_3738-53.png,8,6,0.53311056,myrtus,eucalyptus,Incorrect
+188,satureja/Lam.S.thyX400wF(941)(937)A-8.png,15,17,0.78502685,satureja,thymbra,Incorrect
+190,satureja/Lam.S.thyX400wF(944)(940)E-19.png,15,17,0.3308626,satureja,thymbra,Incorrect

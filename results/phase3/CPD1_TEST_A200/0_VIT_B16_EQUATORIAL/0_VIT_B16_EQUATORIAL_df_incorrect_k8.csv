@@ -1,0 +1,5 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+31,ceratonia/Fab.C.silX400wF(481)(0)G-12.png,3,16,0.4725514,ceratonia,sinapis,Incorrect
+87,olea/Ole.O.euroX400wF(4265)(0)E-135.png,9,16,0.84741575,olea,sinapis,Incorrect
+120,origanum/Lam.O.micX400wF(886)(0)C-47.png,10,16,0.5613879,origanum,sinapis,Incorrect
+145,satureja/Lam.S.thyX400wF(944)(940)E-17.png,15,17,0.7439997,satureja,thymbra,Incorrect

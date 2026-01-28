@@ -1,0 +1,2 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+172,oxalis/Oxa.O.pes.cX400wF(1734)(0)B-8.png,11,16,0.7386205,oxalis,sinapis,Incorrect

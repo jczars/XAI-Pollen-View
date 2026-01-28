@@ -1,0 +1,5 @@
+,file,y_true,y_pred,confidence,true_label,predicted_label,status
+57,eucalyptus/Myr.E.camaX400wF(1872)(0)G-2.png,6,17,0.3649683,eucalyptus,thymbra,Incorrect
+69,eucalyptus/Myr.E.camaX400wF(2964)(0)J-12.png,6,7,0.5337448,eucalyptus,ferula,Incorrect
+82,ferula/Api.F.comX400wF(2135)(0)A-7.png,7,6,0.847985,ferula,eucalyptus,Incorrect
+193,satureja/Lam.S.thyX400wF(941)(937)A-4.png,15,10,0.44196022,satureja,origanum,Incorrect
