@@ -400,19 +400,49 @@ This structure ensures organized storage and easy access to the results of each 
 ## Phase 3  
 ### Separating the Test Dataset into Views  
 
-To partition the test dataset into different views, the following steps were performed:  
+### Separating the Test Dataset into Views
 
-- **Pseudo Labeling**: Applied to segment the test dataset.  
-- **Script Used**: `separated_test.py`  
-- **Configuration File**: `config_separated.yaml`  
-- **Results Directory**: The processed data was saved in the `BD` directory.  
-- **Example Path**: `BD/CPD1_TEST_VIEW`  
+This step aims to partition the **test dataset** into distinct image views
+(**EQUATORIAL** and **POLAR**) using a **pseudo-labeling strategy** based on a
+pre-trained deep learning model.
 
-### Running the Script  
-To execute the separation process, use the following command:  
-```bash
-python3 phase3/separated_test.py --config phase3/config_separated.yaml
-```  
+The procedure enables both **quantitative analysis** (image counts per class and
+view) and **qualitative inspection** of the predicted views.
+
+#### Methodology
+The following steps are performed:
+
+- **Pseudo-Labeling**:  
+  A trained CNN model is used to infer the view of each test image.
+
+- **Dataset Organization**:  
+  Based on the predicted view, images are automatically copied into
+  view-specific directories.
+
+#### Implementation Details
+- **Script**: `phase3/separated_test.py`  
+- **Configuration File**: `phase3/config_separated.yaml`  
+- **Output Directory**: `BD/`  
+
+For the experiments reported in this work, the results are stored in:
+
+```text
+BD/CPD1_TEST_A200/
+```
+The internal directory structure is organized as follows:
+
+CPD1_TEST_A200/
+├── k1/
+│   ├── EQUATORIAL/
+│   │   └── <class_name>/
+│   └── POLAR/
+│       └── <class_name>/
+├── k2/
+│   ├── EQUATORIAL/
+│   └── POLAR/
+├── ...
+└── k10/
+
 ### Generating Test Reports  
 
 To generate classification reports based on the test dataset, the script `reports_test_views.py` was executed using specific configuration files. A separate YAML file was created for each dataset.  
@@ -530,3 +560,38 @@ The table below presents detailed metrics for each class:
 These are the tools used to interpret the test results.
 
 [Table of contentes](#table-of-contents)
+
+# Discussion
+## Classification results of the dataset in its original format
+The same tools from the previous phase are used in this phase. Additionally, consolidated reports are utilized, as explained in the results section of the article. These consolidated reports include the consolidated confusion matrix, the consolidated classification report, and the consolidated box plot. The term consolidated refers to the process of combining the reports from all 10 folds of the cross-validation into a single report.
+
+## Consolidated results
+
+The **discussion** folder contains scripts for generating consolidated reports. These scripts are used with the Test dataset at different stages of processing:
+
+## Scripts
+
+1. **`consolidated_reports.py`** → Used **before** splitting the Test dataset into views.
+2. **`consolidated_reports_view.py`** → Used **after** splitting the Test dataset into views.
+
+## Usage
+
+**Inputs**:
+
+A YAML configuration file (example: config_consolidaded.yaml) that defines the parameters for the script execution.
+
+**Expected Outputs**:
+
+* class_report_test_0_DenseNet201.csv
+* consolidated_boxplot_correct.png
+* consolidated_confusion_matrix.csv
+* consolidated_confusion_matrix.png
+* consolidated_df_correct.csv
+
+**Example of Execution**:
+
+To run the script, make sure the configuration file (config_consolidaded.yaml) is set up correctly and execute the following command:
+
+```bash
+python discussion/consolidated_reports.py --config discussion/config_consolidaded.yaml
+```
