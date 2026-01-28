@@ -512,20 +512,20 @@ For each model, fold, and view, the following outputs are produced:
 
 - **Performance Metrics** (Excel file):
 
--- Accuracy
+  - Accuracy
 
--- Precision
--- Recall
+  - Precision
+  - Recall
 
--- F-score
+  - F-score
 
--- Cohen’s kappa
+  - Cohen’s kappa
 
 - **Correct and Incorrect Classification DataFrames:**
 
--- df_correct: Correctly classified samples
+  - df_correct: Correctly classified samples
 
--- df_incorrect: Incorrectly classified samples
+  - df_incorrect: Incorrectly classified samples
 
 # Results
 
