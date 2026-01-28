@@ -1,0 +1,8 @@
+# Número de pastas de dobras (k-folds) no dataset
+k_folds: 10
+
+normalize: False
+
+# Diretório onde estão os relatóriios de avaliação
+folder:
+- 'results/phase1/ViT_26/0_VIT_B16_reports/'  

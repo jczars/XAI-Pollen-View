@@ -609,12 +609,21 @@ These are the tools used to interpret the test results.
 [Table of contentes](#table-of-contents)
 
 # Discussion
-## Classification results of the dataset in its original format
-The same tools from the previous phase are used in this phase. Additionally, consolidated reports are utilized, as explained in the results section of the article. These consolidated reports include the consolidated confusion matrix, the consolidated classification report, and the consolidated box plot. The term consolidated refers to the process of combining the reports from all 10 folds of the cross-validation into a single report.
+## Classification Results of the Dataset in Its Original Format
+In this phase, the same evaluation tools used in the previous phase are employed. In addition, **consolidated reports** are generated, as described in the Results section of the article.
+
+These consolidated reports include:
+- the consolidated confusion matrix,
+
+- the consolidated classification report, and
+
+- the consolidated box plot.
+
+The term consolidated refers to the process of **combining the results from all 10 folds of the cross-validation into a single, global report**, providing an overall assessment of model performance.
 
 ## Consolidated results
 
-The **discussion** folder contains scripts for generating consolidated reports. These scripts are used with the Test dataset at different stages of processing:
+The **discussion** folder contains scripts responsible for generating consolidated evaluation reports. These scripts are applied to the Test dataset at different stages of the experimental pipeline.
 
 ## Scripts
 
@@ -625,7 +634,13 @@ The **discussion** folder contains scripts for generating consolidated reports. 
 
 **Inputs**:
 
-A YAML configuration file (example: config_consolidaded.yaml) that defines the parameters for the script execution.
+A YAML configuration file (e.g., config_consolidaded.yaml) defining the parameters required for script execution, including:
+
+- the number of folds,
+
+- normalization options, and
+
+- paths to the evaluation result directories.
 
 **Expected Outputs**:
 
@@ -637,7 +652,7 @@ A YAML configuration file (example: config_consolidaded.yaml) that defines the p
 
 **Example of Execution**:
 
-To run the script, make sure the configuration file (config_consolidaded.yaml) is set up correctly and execute the following command:
+Before running the script, ensure that the configuration file *(config_consolidaded.yaml)* is properly configured. Then execute:
 
 ```bash
 python discussion/consolidated_reports.py --config discussion/config_consolidaded.yaml

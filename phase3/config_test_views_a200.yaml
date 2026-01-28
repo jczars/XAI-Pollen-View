@@ -1,4 +1,4 @@
-path_model: "results/phase1/AT_densenet+cbam_exp/5_DenseNet201/"
+path_model: "results/phase1/ViT_26/0_VIT_B16/"
 path_full_labels: "BD/CPD1_Cr_Rs_200/Test/k1"  
 path_test: "BD/CPD1_TEST_A200/"   # Directory to save the distribution chart
 save_dir: "results/phase3/"  # Directory to save the distribution graph
