@@ -661,9 +661,6 @@ python discussion/consolidated_reports.py --config discussion/config_consolidade
 ```
 [Table of contentes](#table-of-contents)
 
-
-# Interpretability
-
 ## Analysis of the Consolidated Confusion Matrix
 
 This section presents the analysis of the **consolidated confusion matrix** generated in the experiment.  
@@ -762,3 +759,51 @@ To run the script, ensure that the configuration file (`config_matrix_analyse.ya
 ```bash
 python discussion/reports_matrix_analyze.py --config discussion/config_matrix_analyse.yaml 
 ```
+
+## Interpretability
+This study investigates the use of visualization techniques—Grad-CAM, Grad-CAM++, and Score-CAM—to understand the decision-making process of neural networks in the task of pollen grain classification. These methods allow for the identification of image regions that significantly influence the model’s predictions, aiding in the distinction between correct and incorrect classifications. In addition, probability graphs are utilized to represent the model’s confidence in its classifications, offering a quantitative perspective on the decisions made.
+
+**How to Interpret the Grad-CAM Color Map**  
+
+**Warm Colors (Red, Yellow, Orange)**  
+- Indicate the regions of highest activation in the image.  
+- These are the areas that had the greatest influence on the model's decision.  
+- The more intense the warm tone, the more relevant the area is for the prediction.  
+
+**Cool Colors (Blue, Green, Purple)**  
+- Represent regions of lower activation.  
+- These areas had little to no influence on the model’s decision.  
+
+**Overlay on the Original Image**  
+- The heatmap is usually overlaid on the original image to facilitate analysis.  
+- The more intense the warm color in a region, the more relevant it was for classification.
+
+**Inputs:**
+
+A YAML configuration file (e.g., config_class_well.yaml) that defines the parameters for executing the script.
+
+**Expected Outputs:**
+
+`correct classification`
+
+![display with Grad CAM results to correct classification](interpretation/grad_cam/GradCAM_class_well_phase3_eq_k1.png)
+
+`incorrect classification` 
+![display with Grad CAM results to incorrect classification](interpretation/grad_cam/GradCAM_class_wrong_phase3_pl_k9.png)
+
+**Example of Execution:**
+
+To run the script, ensure that the configuration file (config_class_well_k1.yaml) is properly set up and execute the following command:
+
+**For correct classification:**
+
+```bash
+python interpretation/Grad_CAM_compared.py --config interpretation/config_class_well_eq_k1.yaml
+```
+**For incorrect classification:**
+
+```bash
+python interpretation/Grad_CAM_compared.py --config interpretation/config_class_wrong_eq_k1.yaml
+```
+
+[Table of contentes](#table-of-contents)
