@@ -1,0 +1,3 @@
+confusion_matrix_csv: results/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports_consolidated/consolidated_confusion_matrix.csv
+output_txt_path: results/discussion/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports_consolidated/confusion_analysis_a500.txt
+top_k_confusions: 5

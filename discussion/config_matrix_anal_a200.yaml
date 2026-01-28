@@ -1,0 +1,3 @@
+confusion_matrix_csv: results/phase1/ViT_26/0_VIT_B16_reports_consolidated/consolidated_confusion_matrix.csv
+output_txt_path: results/discussion/phase1/ViT_26/0_VIT_B16_reports_consolidated/confusion_analysis_a200.txt
+top_k_confusions: 5

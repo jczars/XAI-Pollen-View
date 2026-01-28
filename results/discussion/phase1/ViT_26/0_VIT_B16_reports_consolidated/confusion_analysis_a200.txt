@@ -1,0 +1,57 @@
+CONFUSION MATRIX ANALYSIS REPORT
+========================================
+
+Source CSV: results/phase1/ViT_26/0_VIT_B16_reports_consolidated/consolidated_confusion_matrix.csv
+
+1) Classes with the highest number of classification errors:
+----------------------------------------
+calicotome: 19
+ceratonia: 15
+olea: 9
+eucalyptus: 9
+origanum: 8
+sinapis: 8
+satureja: 7
+thymbra: 6
+vitis: 4
+oxalis: 3
+erica: 3
+ebenus: 3
+myrtus: 2
+pistacia: 2
+urginea: 2
+asphodelus: 2
+ferula: 1
+castanea: 1
+pinus: 0
+salvia: 0
+
+2) Most frequent confusion pairs (True → Predicted):
+----------------------------------------
+olea → sinapis: 6
+calicotome → oxalis: 5
+sinapis → olea: 5
+ceratonia → olea: 5
+ceratonia → vitis: 5
+
+3) Classes receiving the highest number of wrong predictions:
+----------------------------------------
+sinapis: 18
+olea: 14
+thymbra: 13
+vitis: 13
+eucalyptus: 9
+oxalis: 8
+ceratonia: 7
+myrtus: 5
+erica: 3
+origanum: 3
+castanea: 3
+ferula: 2
+satureja: 2
+calicotome: 1
+salvia: 1
+urginea: 1
+asphodelus: 1
+
+End of report.

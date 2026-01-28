@@ -658,3 +658,96 @@ Before running the script, ensure that the configuration file *(config_consolida
 ```bash
 python discussion/consolidated_reports.py --config discussion/config_consolidaded.yaml
 ```
+[Table of contentes](#table-of-contents)
+
+## Analysis of the Consolidated Confusion Matrix
+
+This section presents the analysis of the **consolidated confusion matrix** generated in the experiment.  
+All values reported below were **automatically computed from the CSV confusion matrix**, corresponding exactly to the output produced by the analysis script.
+
+---
+
+### Confusion Matrix Results
+
+#### 1. Classes with the Highest Number of Classification Errors  
+*(Errors per true class)*
+
+This analysis evaluates the number of misclassifications for each **true class**.
+
+| True Class | Total Errors |
+|-----------|--------------|
+| olea | 10 |
+| sinapis | 9 |
+| calicotome | 8 |
+| ceratonia | 7 |
+| origanum | 5 |
+| satureja | 5 |
+| vitis | 4 |
+
+**Interpretation**  
+The class **olea** exhibits the highest number of misclassifications when acting as the true label, indicating that it is the most problematic class in terms of ground-truth errors.
+
+---
+
+#### 2. Top-5 Most Frequent Confusion Pairs  
+*(True Class → Predicted Class)*
+
+This analysis identifies the most recurrent misclassification patterns between pairs of classes.
+
+| True Class | Predicted Class | Count |
+|-----------|------------------|-------|
+| sinapis | olea | 8 |
+| olea | sinapis | 5 |
+| calicotome | olea | 3 |
+| calicotome | vitis | 3 |
+| origanum | ceratonia | 3 |
+
+**Key observations**
+
+- A clear **bidirectional confusion** is observed between **olea** and **sinapis**.
+- The class **olea** appears as a central hub of misclassification, participating in multiple high-frequency confusion pairs.
+
+---
+
+#### 3. Classes Most Frequently Predicted Incorrectly  
+*(Errors aggregated by predicted class)*
+
+This perspective analyzes misclassifications from the standpoint of the **predicted class**, identifying which classes most frequently receive incorrect predictions.
+
+| Predicted Class | Total Errors Received |
+|-----------------|-----------------------|
+| olea | 14 |
+| sinapis | 7 |
+| vitis | 7 |
+| ceratonia | 6 |
+| origanum | 5 |
+| calicotome | 4 |
+| thymbra | 4 |
+
+**Interpretation**  
+The classifier shows a strong tendency to incorrectly assign samples from multiple classes to **olea**, even when this prediction is incorrect.
+
+---
+
+### Global Interpretation
+
+The class **olea** simultaneously presents:
+
+- The highest number of misclassification errors as a **true class**;
+- The highest number of errors received as a **predicted class**;
+- A strong bidirectional confusion with **sinapis**.
+
+These results strongly suggest the presence of:
+
+- Morphological similarity between pollen grains;
+- Model bias toward visually dominant classes;
+- Structural class imbalance in the dataset.
+
+This analysis provides **direct and interpretable evidence** for the discussion of classification behavior beyond conventional performance metrics.
+
+---
+
+### Reproducibility Note
+
+All results presented in this section are automatically generated from the consolidated confusion matrix using a configuration-driven analysis pipeline, ensuring reproducibility and consistency across experiments.
+

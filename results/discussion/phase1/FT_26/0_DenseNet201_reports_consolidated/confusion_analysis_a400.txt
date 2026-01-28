@@ -1,0 +1,56 @@
+CONFUSION MATRIX ANALYSIS REPORT
+========================================
+
+Source CSV: results/phase1/FT_26/0_DenseNet201_reports_consolidated/consolidated_confusion_matrix.csv
+
+1) Classes com mais erros de classificação:
+----------------------------------------
+olea: 10
+sinapis: 9
+calicotome: 8
+ceratonia: 7
+origanum: 5
+satureja: 5
+vitis: 4
+myrtus: 3
+eucalyptus: 3
+oxalis: 3
+thymbra: 3
+erica: 1
+pistacia: 1
+salvia: 1
+ebenus: 1
+ferula: 0
+pinus: 0
+castanea: 0
+urginea: 0
+asphodelus: 0
+
+2) Top classes mais confundidas (True → Predicted):
+----------------------------------------
+sinapis → olea: 8
+olea → sinapis: 5
+calicotome → olea: 3
+calicotome → vitis: 3
+origanum → ceratonia: 3
+
+3) Classes previstas erroneamente (erros recebidos):
+----------------------------------------
+olea: 14
+sinapis: 7
+vitis: 7
+ceratonia: 6
+origanum: 5
+calicotome: 4
+thymbra: 4
+castanea: 3
+oxalis: 3
+eucalyptus: 2
+myrtus: 2
+salvia: 2
+satureja: 2
+asphodelus: 1
+ebenus: 1
+erica: 1
+
+End of report.
