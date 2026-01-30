@@ -408,7 +408,7 @@ pre-trained deep learning model.
 The procedure enables both **quantitative analysis** (image counts per class and
 view) and **qualitative inspection** of the predicted views.
 
-#### Methodology
+**Methodology**
 The following steps are performed:
 
 - **Pseudo-Labeling**:  
@@ -418,12 +418,12 @@ The following steps are performed:
   Based on the predicted view, images are automatically copied into
   view-specific directories.
 
-#### Implementation Details
+**Implementation Details**
 - **Script**: `phase3/separated_test.py`  
 - **Configuration File**: `phase3/config_separated.yaml`  
 - **Output Directory**: `BD/` 
 
-### Running the Script  
+**Running the Script**  
 To execute the separation process, use the following command:  
 ```bash
 python3 phase3/separated_test.py --config phase3/config_separated.yaml
@@ -460,7 +460,7 @@ The test data are organized using k-fold cross-validation and separated into two
 
 For each fold (k = 1 to 10) and for each view, the script performs model inference, computes standard classification metrics, and produces both quantitative and visual evaluation outputs.
 
-### Script and Configuration
+**Script and Configuration**
 
 **Script**: reports_test_views.py
 
@@ -468,14 +468,14 @@ For each fold (k = 1 to 10) and for each view, the script performs model inferen
 
 A dedicated YAML configuration file is defined for each test dataset, specifying the paths to the trained models, test data directories, label information, and the output directory.
 
-### Running the Script
+**Running the Script**
 
 To generate the evaluation reports, execute:
 ```bash
 python3 phase3/reports_test_views.py --config phase3/config_test_views.yaml
 ```
 
-### Output Location and Structure
+**Output Location and Structure**
 
 All generated results are automatically saved in the directory defined by the **save_dir** parameter in the YAML file.
 
@@ -502,7 +502,7 @@ CPD1_TEST_A200/
 ```
 The separation into EQUATORIAL and POLAR directories enables a detailed analysis of view-dependent classification performance.
 
-### Generated Results
+**Generated Results**
 
 For each model, fold, and view, the following outputs are produced:
 
@@ -568,17 +568,17 @@ BD/.../data_summary.csv
 This section presents **illustrative results** obtained using the DenseNet201 classifier on the k=1-fold with **equatorial views**. The evaluation includes training performance metrics, a box plot of prediction probabilities, a confusion matrix, and a detailed classification report.
 
 
-### Prediction Confidence Analysis
+**Prediction Confidence Analysis**
 The boxplot below displays the **distribution of prediction probabilities** for correctly classified samples:
 
 ![Boxplot of Prediction Probabilities](images/0_DenseNet201_EQUATORIAL_boxplot_k1.jpg)
 
-### Confusion Matrix
+**Confusion Matrix**
 The confusion matrix generated from the test dataset classification is shown below:
 
 ![Confusion Matrix](images/0_DenseNet201_EQUATORIAL_confusion_matrix_k1.jpg)
 
-### Classification Report
+**Classification Report**
 The table below presents detailed metrics for each class:
 
 | Class        | Precision  | Recall    | F1-Score  | Support |
@@ -622,16 +622,16 @@ These consolidated reports include:
 
 The term consolidated refers to the process of **combining the results from all 10 folds of the cross-validation into a single, global report**, providing an overall assessment of model performance.
 
-## Consolidated results
+**Consolidated results**
 
 The **discussion** folder contains scripts responsible for generating consolidated evaluation reports. These scripts are applied to the Test dataset at different stages of the experimental pipeline.
 
-## Scripts
+**Scripts**
 
 1. **`consolidated_reports.py`** → Used **before** splitting the Test dataset into views.
 2. **`consolidated_reports_view.py`** → Used **after** splitting the Test dataset into views.
 
-## Usage
+**Usage**
 
 **Inputs**:
 
@@ -668,9 +668,9 @@ All values reported below were **automatically computed from the CSV confusion m
 
 ---
 
-### Confusion Matrix Results
+**Confusion Matrix Results**
 
-#### 1. Classes with the Highest Number of Classification Errors  
+**1. Classes with the Highest Number of Classification Errors**
 *(Errors per true class)*
 
 This analysis evaluates the number of misclassifications for each **true class**.
@@ -690,7 +690,7 @@ The class **olea** exhibits the highest number of misclassifications when acting
 
 ---
 
-#### 2. Top-5 Most Frequent Confusion Pairs  
+**2. Top-5 Most Frequent Confusion Pairs**
 *(True Class → Predicted Class)*
 
 This analysis identifies the most recurrent misclassification patterns between pairs of classes.
@@ -710,7 +710,7 @@ This analysis identifies the most recurrent misclassification patterns between p
 
 ---
 
-#### 3. Classes Most Frequently Predicted Incorrectly  
+**3. Classes Most Frequently Predicted Incorrectly**
 *(Errors aggregated by predicted class)*
 
 This perspective analyzes misclassifications from the standpoint of the **predicted class**, identifying which classes most frequently receive incorrect predictions.
@@ -748,7 +748,7 @@ This analysis provides **direct and interpretable evidence** for the discussion 
 
 ---
 
-### Reproducibility Note
+**Reproducibility Note**
 
 All results presented in this section are automatically generated from the consolidated confusion matrix using a configuration-driven analysis pipeline, ensuring reproducibility and consistency across experiments.
 
@@ -759,6 +759,72 @@ To run the script, ensure that the configuration file (`config_matrix_analyse.ya
 ```bash
 python discussion/reports_matrix_analyze.py --config discussion/config_matrix_analyse.yaml 
 ```
+
+**Targeted Misclassification Analysis**
+
+**Overview**
+This module performs a **targeted post-analysis of classification errors**
+by inspecting multiple CSV reports containing incorrect predictions
+(`df_incorrect` files).
+
+Instead of analyzing all misclassifications globally, the algorithm focuses
+on **specific true → predicted class pairs of interest**, allowing detailed
+investigation of recurrent or scientifically relevant confusion patterns,
+such as morphologically similar species or systematic model bias.
+
+This approach is particularly useful for:
+- Error analysis in cross-validation experiments;
+- Supporting qualitative discussion in scientific articles;
+- Identifying asymmetric or bidirectional class confusions.
+
+---
+
+**Input Data**
+
+**Incorrect Prediction Reports**
+The script expects multiple CSV files following the naming pattern:
+
+**Test_*_df_incorrect_kX.csv**
+
+
+**Each CSV file must contain the following columns:**
+
+| Column Name       | Description                                   |
+|-------------------|-----------------------------------------------|
+| `file`            | Image filename                                |
+| `true_label`      | Ground-truth class label                      |
+| `predicted_label` | Incorrectly predicted class label             |
+
+The fold index `k` is automatically extracted from the filename.
+
+---
+
+**Configuration (YAML)**
+
+All parameters are controlled through an external YAML file.
+
+**Example: `config_target_confusions.yaml`**
+
+```yaml
+input_folder: results/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports/
+
+target_confusions:
+  - [sinapis, olea]
+  - [calicotome, olea]
+  - [ceratonia, eucalyptus]
+  - [origanum, ceratonia]
+
+output_csv: results/discussion/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports_consolidated/A500_confusion_summary.csv
+```
+
+### Example of Execution:
+
+To run the script, ensure that the configuration file (`config_target_confusions.yaml`) is correctly configured, then execute the following command:
+
+```bash
+python discussion/filter_confusions.py --config discussion/config_A500_confusions.yam
+```
+
 
 ## Interpretability
 This study investigates the use of visualization techniques—Grad-CAM, Grad-CAM++, and Score-CAM—to understand the decision-making process of neural networks in the task of pollen grain classification. These methods allow for the identification of image regions that significantly influence the model’s predictions, aiding in the distinction between correct and incorrect classifications. In addition, probability graphs are utilized to represent the model’s confidence in its classifications, offering a quantitative perspective on the decisions made.
