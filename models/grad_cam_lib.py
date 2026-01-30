@@ -312,6 +312,66 @@ def display_cam_grid(images, classes, model, conv_layer_name, CATEGORIES):
     plt.tight_layout(pad=1)  # Ajustar o pad para margens controladas
     return fig
 
+# =========================================================
+# VISUALIZATION (GENERIC N x M GRID)
+# =========================================================
+def display_cam_grid_generic(samples, categories):
+    """
+    Display an N x M grid of classification results.
+
+    samples: list of dicts with keys:
+        image, true_class, pred_label, probs,
+        gradcam, gradcam_pp, scorecam
+    """
+
+    n_images = len(samples)
+    n_cols = 5  # Original + Prob + 3 CAMs
+
+    fig, axs = plt.subplots(
+        nrows=n_images,
+        ncols=n_cols,
+        figsize=(4 * n_cols, 3.5 * n_images)
+    )
+
+    if n_images == 1:
+        axs = np.expand_dims(axs, axis=0)
+
+    for i, sample in enumerate(samples):
+
+        # Original image
+        axs[i, 0].imshow(sample["image"])
+        axs[i, 0].set_title(f"True: {sample['true_class']}")
+        axs[i, 0].axis("off")
+
+        # Probabilities
+        axs[i, 1].barh(
+            range(len(sample["probs"])),
+            sample["probs"]
+        )
+        axs[i, 1].set_title(f"Pred: {sample['pred_label']}")
+        axs[i, 1].set_yticks(range(len(categories)))
+        axs[i, 1].set_yticklabels(categories, fontsize=8)
+        axs[i, 1].set_xlim(0, 1)
+
+        # Grad-CAM
+        axs[i, 2].imshow(sample["gradcam"])
+        axs[i, 2].set_title("Grad-CAM")
+        axs[i, 2].axis("off")
+
+        # Grad-CAM++
+        axs[i, 3].imshow(sample["gradcam_pp"])
+        axs[i, 3].set_title("Grad-CAM++")
+        axs[i, 3].axis("off")
+
+        # Score-CAM
+        axs[i, 4].imshow(sample["scorecam"])
+        axs[i, 4].set_title("Score-CAM")
+        axs[i, 4].axis("off")
+
+    plt.tight_layout()
+    return fig
+
+
 if __name__ == "__main__":
     #help(load_model)
     help(load_img_gen)
@@ -320,3 +380,4 @@ if __name__ == "__main__":
     help(ScoreCam)    
     help(superimpose_heatmap_on_image)
     help(display_cam_grid)    
+    help(display_cam_grid_generic)

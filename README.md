@@ -610,7 +610,7 @@ These are the tools used to interpret the test results.
 [Table of contentes](#table-of-contents)
 
 # Discussion
-## Classification Results of the Dataset in Its Original Format
+## Consolidated results of the dataset in its original format.
 In this phase, the same evaluation tools used in the previous phase are employed. In addition, **consolidated reports** are generated, as described in the Results section of the article.
 
 These consolidated reports include:
@@ -752,7 +752,7 @@ This analysis provides **direct and interpretable evidence** for the discussion 
 
 All results presented in this section are automatically generated from the consolidated confusion matrix using a configuration-driven analysis pipeline, ensuring reproducibility and consistency across experiments.
 
-**Example of Execution:**
+### Example of Execution:
 
 To run the script, ensure that the configuration file (`config_matrix_analyse.yaml`) is correctly configured, then execute the following command:
 
@@ -760,9 +760,9 @@ To run the script, ensure that the configuration file (`config_matrix_analyse.ya
 python discussion/reports_matrix_analyze.py --config discussion/config_matrix_analyse.yaml 
 ```
 
-**Targeted Misclassification Analysis**
+## Targeted Misclassification Analysis
 
-**Overview**
+### Overview
 This module performs a **targeted post-analysis of classification errors**
 by inspecting multiple CSV reports containing incorrect predictions
 (`df_incorrect` files).
