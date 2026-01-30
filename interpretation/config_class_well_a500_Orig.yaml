@@ -1,0 +1,35 @@
+# ===============================
+# GENERAL CONFIGURATION
+# ===============================
+
+data_base_path: "BD/CPD1_Cr_Rs_500/Test/"
+saved_dir: "results/interpretation/"
+conv_layer_name: "activation_1"
+img_size: 224
+output_filename: "GradCAM_class_well_phase1_a500_Orig.png"
+
+# ===============================
+# MODEL CONFIGURATION
+# ===============================
+
+model_config:
+  base_path: "results/phase1/AT_Dn+CBAM_26/1_DenseNet201/"
+  filename_template: "1_DenseNet201_bestLoss_{k}.keras"
+  ks: [4, 6, 10]
+
+# ===============================
+# SAMPLES
+# ===============================
+
+samples:
+  - k: 10
+    file: "sinapis/IMG_3704-13.png"
+
+  - k: 10
+    file: "ceratonia/Fab.C.silX400wF(476)(0)B-4.png"
+
+  - k: 4
+    file: "calicotome/Fab.C.vilX400wF(2018)(0)C-4.png"
+
+  - k: 6
+    file: "origanum/Lam.O.micX400wF(886)(0)C-45.png"
