@@ -734,7 +734,7 @@ The fold index k is automatically extracted from the filename.
 ### Output Reports
 
 - Filtered confusion summary (CSV):  
-  Example: <experiment>_targeted_confusions.csv
+  Example: <experiment>_confusion_summary.csv
 
 Outputs are saved to the experiment results directory.
 
@@ -747,49 +747,50 @@ python discussion/filter_confusions.py --config discussion/config_A500_confusion
 
 
 ## Interpretability
-This study investigates the use of visualization techniques—Grad-CAM, Grad-CAM++, and Score-CAM—to understand the decision-making process of neural networks in the task of pollen grain classification. These methods allow for the identification of image regions that significantly influence the model’s predictions, aiding in the distinction between correct and incorrect classifications. In addition, probability graphs are utilized to represent the model’s confidence in its classifications, offering a quantitative perspective on the decisions made.
 
-**How to Interpret the Grad-CAM Color Map**  
+### Overview
 
-**Warm Colors (Red, Yellow, Orange)**  
-- Indicate the regions of highest activation in the image.  
-- These are the areas that had the greatest influence on the model's decision.  
-- The more intense the warm tone, the more relevant the area is for the prediction.  
+This module investigates model interpretability in pollen grain classification
+using visualization techniques such as Grad-CAM, Grad-CAM++, and Score-CAM.
 
-**Cool Colors (Blue, Green, Purple)**  
-- Represent regions of lower activation.  
-- These areas had little to no influence on the model’s decision.  
+These methods highlight image regions that most influence neural network
+predictions, supporting the analysis of correct and incorrect classifications.
+Probability graphs are additionally used to represent model confidence in a
+quantitative manner.
 
-**Overlay on the Original Image**  
-- The heatmap is usually overlaid on the original image to facilitate analysis.  
-- The more intense the warm color in a region, the more relevant it was for classification.
+Warm color regions indicate areas with higher relevance to the prediction,
+while cool colors correspond to regions with low or negligible influence.
 
-**Inputs:**
+---
 
-A YAML configuration file (e.g., config_class_well.yaml) that defines the parameters for executing the script.
+### Input Data
 
-**Expected Outputs:**
+- Input images used during model inference
 
-`correct classification`
+- Configuration file (YAML) defining model, layer, class selection, and execution parameters  
+  Example: interpretation/config_class_well_eq_k1.yaml
 
-![display with Grad CAM results to correct classification](interpretation/grad_cam/GradCAM_class_well_phase3_eq_k1.png)
+---
 
-`incorrect classification` 
-![display with Grad CAM results to incorrect classification](interpretation/grad_cam/GradCAM_class_wrong_phase3_pl_k9.png)
+### Output Reports
 
-**Example of Execution:**
+- Grad-CAM visualizations overlaid on the original images, highlighting relevant regions
 
-To run the script, ensure that the configuration file (config_class_well_k1.yaml) is properly set up and execute the following command:
+- Probability graphs representing model confidence for predicted classes
 
-**For correct classification:**
+Outputs are saved to the interpretability results directory.
 
-```bash
-python interpretation/Grad_CAM_compared.py --config interpretation/config_class_well_eq_k1.yaml
-```
-**For incorrect classification:**
+---
+
+### Example of Execution
 
 ```bash
-python interpretation/Grad_CAM_compared_gen.py --config interpretation/config_class_wrong_a500_Orig.yaml 
+python interpretation/Grad_CAM_compared.py --config interpretation/config_class_well_eq_k1.yaml  
 ```
+
+```bash
+python interpretation/Grad_CAM_compared_gen.py --config interpretation/config_class_wrong_a500_Orig.yaml
+```
+
 
 [Table of contentes](#table-of-contents)
