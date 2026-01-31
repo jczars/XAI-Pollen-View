@@ -635,16 +635,24 @@ of the article.
 
 ### Output Reports
   ```
-  - Consolidated confusion matrix (CSV and image)
-
   - Consolidated classification report (CSV)
-
   - Consolidated box plot of correct classifications (image)
-
+  - Consolidated confusion matrix (CSV and image)
   - Consolidated dataframe of correct predictions (CSV)
   ```
 
 Outputs are saved to the consolidated results directory.
+**Example**
+```
+/media/jczars/4C22F02A22F01B22/Pollen-Classification-CBAM/results/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports_consolidated/
+
+- class_report_test_1_DenseNet201.csv
+- consolidated_boxplot_correct.png
+- consolidated_classification_report.csv
+- consolidated_confusion_matrix.csv
+- consolidated_confusion_matrix.png
+- consolidated_df_correct.csv
+```
 
 ---
 
