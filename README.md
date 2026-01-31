@@ -634,14 +634,15 @@ of the article.
 ---
 
 ### Output Reports
+  ```
+  - Consolidated confusion matrix (CSV and image)
 
-- Consolidated confusion matrix (CSV and image)
+  - Consolidated classification report (CSV)
 
-- Consolidated classification report (CSV)
+  - Consolidated box plot of correct classifications (image)
 
-- Consolidated box plot of correct classifications (image)
-
-- Consolidated dataframe of correct predictions (CSV)
+  - Consolidated dataframe of correct predictions (CSV)
+  ```
 
 Outputs are saved to the consolidated results directory.
 
@@ -726,8 +727,11 @@ The fold index k is automatically extracted from the filename.
 
 ### Output Reports
 
-- Filtered confusion summary (CSV):  
-  Example: <experiment>_confusion_summary.csv
+- Filtered confusion summary (CSV):
+
+  ``` 
+    Example: <experiment>_confusion_summary.csv
+  ```
 
 Outputs are saved to the experiment results directory.
 
