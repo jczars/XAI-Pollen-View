@@ -693,82 +693,54 @@ The analysis is fully automated and configuration-driven.
   ```
   confusion_analysis_<experiment>.txt
   ```
-- **CSV summary**
-  ```
-  <experiment>_confusion_summary.csv
-  ```
 Outputs are saved to the experiment results directory.
 
 
-## Example of Execution
+### Example of Execution
 
 ```bash
-python discussion/reports_matrix_analyze.py \
---config discussion/config_matrix_anal_a500.yaml
+python discussion/reports_matrix_analyze.py --config discussion/config_matrix_anal_a500.yaml
 ```
 
 
 ## Targeted Confusion Analysis
 
 ### Overview
-This module performs a **targeted post-analysis of classification errors**
-by inspecting multiple CSV reports containing incorrect predictions
-(`df_incorrect` files).
 
-Instead of analyzing all misclassifications globally, the algorithm focuses
-on **specific true → predicted class pairs of interest**, allowing detailed
-investigation of recurrent or scientifically relevant confusion patterns,
-such as morphologically similar species or systematic model bias.
+This module performs a targeted post-analysis of classification errors by inspecting
+multiple CSV reports containing incorrect predictions (df_incorrect files).
 
-This approach is particularly useful for:
-- Error analysis in cross-validation experiments;
-- Supporting qualitative discussion in scientific articles;
-- Identifying asymmetric or bidirectional class confusions.
+Instead of analyzing all misclassifications globally, it focuses on specific
+true → predicted class pairs of interest, enabling detailed investigation of
+recurrent or scientifically relevant confusion patterns.
 
 ---
 
-**Input Data**
+### Input Data
 
-**Incorrect Prediction Reports**
-The script expects multiple CSV files following the naming pattern:
+- Incorrect prediction reports (CSV)  
+  Naming pattern: Test_*_df_incorrect_kX.csv
 
-**Test_*_df_incorrect_kX.csv**
+- Required columns in each CSV:  
+  file, true_label, predicted_label
 
+- Configuration file (YAML):  
+  Example: discussion/config_A500_confusions.yaml
 
-**Each CSV file must contain the following columns:**
-
-| Column Name       | Description                                   |
-|-------------------|-----------------------------------------------|
-| `file`            | Image filename                                |
-| `true_label`      | Ground-truth class label                      |
-| `predicted_label` | Incorrectly predicted class label             |
-
-The fold index `k` is automatically extracted from the filename.
+The fold index k is automatically extracted from the filename.
 
 ---
 
-**Configuration (YAML)**
+### Output Reports
 
-All parameters are controlled through an external YAML file.
+- Filtered confusion summary (CSV):  
+  Example: <experiment>_targeted_confusions.csv
 
-**Example: `config_target_confusions.yaml`**
+Outputs are saved to the experiment results directory.
 
-```yaml
-input_folder: results/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports/
+---
 
-target_confusions:
-  - [sinapis, olea]
-  - [calicotome, olea]
-  - [ceratonia, eucalyptus]
-  - [origanum, ceratonia]
-
-output_csv: results/discussion/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports_consolidated/A500_confusion_summary.csv
-```
-
-### Example of Execution:
-
-To run the script, ensure that the configuration file (`config_target_confusions.yaml`) is correctly configured, then execute the following command:
-
+### Example of Execution
 ```bash
 python discussion/filter_confusions.py --config discussion/config_A500_confusions.yaml
 ```
