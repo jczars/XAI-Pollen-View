@@ -642,7 +642,15 @@ of the article.
   ```
 
 Outputs are saved to the consolidated results directory.
-**Example**
+
+---
+
+### Example of Execution
+```bash
+python discussion/consolidated_reports.py --config discussion/config_consolidaded.yaml
+```
+
+**Example the results**
 ```
 /media/jczars/4C22F02A22F01B22/Pollen-Classification-CBAM/results/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports_consolidated/
 
@@ -652,13 +660,6 @@ Outputs are saved to the consolidated results directory.
 - consolidated_confusion_matrix.csv
 - consolidated_confusion_matrix.png
 - consolidated_df_correct.csv
-```
-
----
-
-### Example of Execution
-```bash
-python discussion/consolidated_reports.py --config discussion/config_consolidaded.yaml
 ```
 
 [Table of contentes](#table-of-contents)
