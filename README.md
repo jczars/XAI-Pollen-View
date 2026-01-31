@@ -650,7 +650,7 @@ Outputs are saved to the consolidated results directory.
 python discussion/consolidated_reports.py --config discussion/config_consolidaded.yaml
 ```
 
-**Example the results**
+**Example of results**
 ```
 /media/jczars/4C22F02A22F01B22/Pollen-Classification-CBAM/results/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports_consolidated/
 
@@ -704,6 +704,14 @@ Outputs are saved to the experiment results directory.
 ```bash
 python discussion/reports_matrix_analyze.py --config discussion/config_matrix_anal_a500.yaml
 ```
+
+**Example of results**
+```
+/media/jczars/4C22F02A22F01B22/Pollen-Classification-CBAM/results/discussion/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports_consolidated/
+
+- confusion_analysis_a500.txt
+```
+
 [Table of contentes](#table-of-contents)
 
 ## Targeted Confusion Analysis
@@ -749,6 +757,13 @@ Outputs are saved to the experiment results directory.
 ### Example of Execution
 ```bash
 python discussion/filter_confusions.py --config discussion/config_A500_confusions.yaml
+```
+
+**Example of results**
+```
+/media/jczars/4C22F02A22F01B22/Pollen-Classification-CBAM/results/discussion/phase1/AT_Dn+CBAM_26/1_DenseNet201_reports_consolidated/
+
+- A500_confusion_summary.csv
 ```
 
 [Table of contentes](#table-of-contents)
