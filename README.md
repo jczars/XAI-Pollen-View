@@ -23,7 +23,7 @@ To quickly run all tests, follow this menu:
 - [Results](#Results)
   - [Results of Phase 3](#Results-of-dataset-separation-by-views)
 - [Discussion](#Discussion)
-  - [Consolidated Results of the Dataset in Original Format](#Consolidated Results-of-the-Dataset-in-Original-Format)
+  - [Consolidated Results of the Dataset in Original Format](#Consolidated-Results-of-the-Dataset-in-Original-Format)
   - [Analysis of the Consolidated Confusion Matrix](#Analysis-of-the-Consolidated-Confusion-Matrix)
   - [Targeted Confusion Analysis](#Targeted-Confusion-Analysis)
   - [Interpretability](#Interpretability)
