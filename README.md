@@ -701,7 +701,7 @@ Outputs are saved to the experiment results directory.
 ```bash
 python discussion/reports_matrix_analyze.py --config discussion/config_matrix_anal_a500.yaml
 ```
-
+[Table of contentes](#table-of-contents)
 
 ## Targeted Confusion Analysis
 
@@ -745,6 +745,7 @@ Outputs are saved to the experiment results directory.
 python discussion/filter_confusions.py --config discussion/config_A500_confusions.yaml
 ```
 
+[Table of contentes](#table-of-contents)
 
 ## Interpretability
 
