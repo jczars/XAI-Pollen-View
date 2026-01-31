@@ -24,9 +24,8 @@ To quickly run all tests, follow this menu:
   - [Results of Phase 3](#Results-of-dataset-separation-by-views)
 - [Discussion](#Discussion)
   - [Consolidated results](#Consolidated-results)
-  - [Test the Wilcoxon](#Test-wilcoxon)
-  - [Compare metrics](#compare-metrics)
   - [Analysis of the Consolidated Confusion Matrix](#Analysis-of-the-Consolidated-Confusion-Matrix)
+  - [Targeted Confusion Analysis](#Targeted-Confusion-Analysis)
   - [Interpretability](#Interpretability)
 - [Project Folder Structure](#project-Folder-Structure)
   - [Description of Key Folders](#description-of-Key-Folders)
@@ -610,55 +609,49 @@ These are the tools used to interpret the test results.
 [Table of contentes](#table-of-contents)
 
 # Discussion
-## Consolidated results of the dataset in its original format.
-In this phase, the same evaluation tools used in the previous phase are employed. In addition, **consolidated reports** are generated, as described in the Results section of the article.
+## Consolidated Results of the Dataset (Original Format)
 
-These consolidated reports include:
-- the consolidated confusion matrix,
+### Overview
 
-- the consolidated classification report, and
+This module generates consolidated evaluation results for the dataset in its
+original format by aggregating the outcomes of all folds in the cross-validation
+procedure into global reports.
 
-- the consolidated box plot.
+The consolidated results provide an overall assessment of model performance and
+are used to support the quantitative analysis presented in the Results section
+of the article.
 
-The term consolidated refers to the process of **combining the results from all 10 folds of the cross-validation into a single, global report**, providing an overall assessment of model performance.
+---
 
-**Consolidated results**
+### Input Data
 
-The **discussion** folder contains scripts responsible for generating consolidated evaluation reports. These scripts are applied to the Test dataset at different stages of the experimental pipeline.
+- Evaluation outputs from all cross-validation folds generated on the Test dataset
 
-**Scripts**
+- Configuration file (YAML) defining execution parameters such as number of folds,
+  normalization options, and paths to evaluation result directories  
+  Example: discussion/config_consolidaded.yaml
 
-1. **`consolidated_reports.py`** → Used **before** splitting the Test dataset into views.
-2. **`consolidated_reports_view.py`** → Used **after** splitting the Test dataset into views.
+---
 
-**Usage**
+### Output Reports
 
-**Inputs**:
+- Consolidated confusion matrix (CSV and image)
 
-A YAML configuration file (e.g., config_consolidaded.yaml) defining the parameters required for script execution, including:
+- Consolidated classification report (CSV)
 
-- the number of folds,
+- Consolidated box plot of correct classifications (image)
 
-- normalization options, and
+- Consolidated dataframe of correct predictions (CSV)
 
-- paths to the evaluation result directories.
+Outputs are saved to the consolidated results directory.
 
-**Expected Outputs**:
+---
 
-* class_report_test_0_DenseNet201.csv
-* consolidated_boxplot_correct.png
-* consolidated_classification_report.csv
-* consolidated_confusion_matrix.csv
-* consolidated_confusion_matrix.png
-* consolidated_df_correct.csv
-
-**Example of Execution**:
-
-Before running the script, ensure that the configuration file **(config_consolidaded.yaml)** is properly configured. Then execute:
-
+### Example of Execution
 ```bash
 python discussion/consolidated_reports.py --config discussion/config_consolidaded.yaml
 ```
+
 [Table of contentes](#table-of-contents)
 
 ## Analysis of the Consolidated Confusion Matrix
