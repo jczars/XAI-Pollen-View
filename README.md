@@ -749,11 +749,14 @@ using visualization techniques such as Grad-CAM, Grad-CAM++, and Score-CAM.
 
 These methods highlight image regions that most influence neural network
 predictions, supporting the analysis of correct and incorrect classifications.
-Probability graphs are additionally used to represent model confidence in a
-quantitative manner.
+Probability graphs are additionally used to represent model confidence.
 
-Warm color regions indicate areas with higher relevance to the prediction,
-while cool colors correspond to regions with low or negligible influence.
+Interpretation of the Grad-CAM color map follows a standard convention: warm
+colors (red, yellow, orange) indicate regions of highest activation and strongest
+influence on the model’s decision, while cool colors (blue, green, purple)
+represent regions with low or negligible influence. The heatmap is overlaid on
+the original image to facilitate visual inspection, with higher color intensity
+corresponding to greater relevance for classification.
 
 ---
 
