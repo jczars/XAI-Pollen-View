@@ -577,8 +577,9 @@ The confusion matrix generated from the test dataset classification is shown bel
 
 ![Confusion Matrix](images/0_DenseNet201_EQUATORIAL_confusion_matrix_k1.jpg)
 
-`**Classification Report**`
+``` **Classification Report**
 The table below presents detailed metrics for each class:
+```
 
 | Class        | Precision  | Recall    | F1-Score  | Support |
 |--------------|-----------|-----------|-----------|---------|
