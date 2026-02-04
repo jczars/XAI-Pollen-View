@@ -1,0 +1,35 @@
+# ===============================
+# GENERAL CONFIGURATION
+# ===============================
+
+data_base_path: "BD/CPD1_Cr_Rs_400/Test/"
+saved_dir: "results/interpretation/"
+conv_layer_name: "relu"
+img_size: 224
+output_filename: "GradCAM_class_wrong_phase1_a400_Orig.png"
+
+# ===============================
+# MODEL CONFIGURATION
+# ===============================
+
+model_config:
+  base_path: "results/phase1/FT_26/0_DenseNet201/"
+  filename_template: "0_DenseNet201_bestLoss_{k}.keras"
+  ks: [4, 6]
+
+# ===============================
+# SAMPLES
+# ===============================
+
+samples:
+  - k: 4
+    file: "sinapis/Bra.S.albX400wF(2153)(0)D-6.png"
+  
+  - k: 4
+    file: "calicotome/Fab.C.vilX400wF(2018)(0)C-3.png"
+  
+  - k: 6
+    file: "olea/Ole.O.euroX400wF(4263)(0)C-126.png" 
+
+  - k: 6
+    file: "origanum/Lam.O.micX400wF(884)(0)A-9.png"

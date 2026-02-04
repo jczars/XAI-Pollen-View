@@ -26,7 +26,7 @@ To quickly run all tests, follow this menu:
   - [Consolidated Results of the Dataset in Original Format](#Consolidated-Results-of-the-Dataset-in-Original-Format)
   - [Analysis of the Consolidated Confusion Matrix](#Analysis-of-the-Consolidated-Confusion-Matrix)
   - [Targeted Confusion Analysis](#Targeted-Confusion-Analysis)
-  - [Interpretability](#Interpretability)
+- [Interpretability](#Interpretability)
 - [Project Folder Structure](#project-Folder-Structure)
   - [Description of Key Folders](#description-of-Key-Folders)
   - [Resources](#resources)
@@ -768,7 +768,7 @@ python discussion/filter_confusions.py --config discussion/config_A500_confusion
 
 [Table of contentes](#table-of-contents)
 
-## Interpretability
+# Interpretability
 
 ### Overview
 
@@ -810,7 +810,7 @@ Outputs are saved to the interpretability results directory.
 ### Example of Execution
 
 ```bash
-python interpretation/Grad_CAM_compared.py --config interpretation/config_class_well_eq_k1.yaml  
+python interpretation/Grad_CAM_compared_gen.py --config interpretation/config_class_well_a500_Orig.yaml  
 ```
 
 ```bash
