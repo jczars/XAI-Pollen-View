@@ -580,6 +580,8 @@ The confusion matrix generated from the test dataset classification is shown bel
 
 ![Confusion Matrix](images/0_DenseNet201_EQUATORIAL_confusion_matrix_k1.jpg)
 
+---
+
 **Classification Report**
 
 The table below presents detailed metrics for each class:
@@ -837,6 +839,8 @@ python interpretation/Grad_CAM_compared_gen.py --config interpretation/config_cl
 `correct classification`
 
 ![display with Grad CAM results to correct classification](results/interpretation/GradCAM_class_well_phase1_a500_Orig.png)
+
+---
 
 `incorrect classification` 
 ![display with Grad CAM results to incorrect classification](results/interpretation/GradCAM_class_wrong_phase1_a500_Orig.png)
