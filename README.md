@@ -773,15 +773,15 @@ python discussion/filter_confusions.py --config discussion/config_A500_confusion
 ### Overview
 
 This module investigates model interpretability in pollen grain classification
-using visualization techniques such as Grad-CAM, Grad-CAM++, and Score-CAM.
+using visualization techniques such as **Grad-CAM, Grad-CAM++**, and **Score-CAM**.
 
 These methods highlight image regions that most influence neural network
-predictions, supporting the analysis of correct and incorrect classifications.
+predictions, supporting the analysis of **correct** and **incorrect** classifications.
 Probability graphs are additionally used to represent model confidence.
 
-Interpretation of the Grad-CAM color map follows a standard convention: warm
-colors (red, yellow, orange) indicate regions of highest activation and strongest
-influence on the model’s decision, while cool colors (blue, green, purple)
+Interpretation of the Grad-CAM color map follows a standard convention: **warm
+colors (red, yellow, orange)** indicate regions of highest activation and strongest
+influence on the model’s decision, while cool **colors (blue, green, purple)**
 represent regions with low or negligible influence. The heatmap is overlaid on
 the original image to facilitate visual inspection, with higher color intensity
 corresponding to greater relevance for classification.
@@ -809,6 +809,8 @@ Outputs are saved to the interpretability results directory.
 
 ### Example of Execution
 
+**Database in original format:**
+
 ```bash
 python interpretation/Grad_CAM_compared_gen.py --config interpretation/config_class_well_a500_Orig.yaml  
 ```
@@ -817,5 +819,21 @@ python interpretation/Grad_CAM_compared_gen.py --config interpretation/config_cl
 python interpretation/Grad_CAM_compared_gen.py --config interpretation/config_class_wrong_a500_Orig.yaml
 ```
 
+**Database in VIEW format (Equatorial, Polar)**
+
+```bash
+python interpretation/Grad_CAM_compared_gen.py --config interpretation/config_class_well_a500_Eq.yaml  
+```
+```bash
+python interpretation/Grad_CAM_compared_gen.py --config interpretation/config_class_wrong_a500_Eq.yaml
+```
+**Expected Outputs:**
+
+`correct classification`
+
+![display with Grad CAM results to correct classification](results/interpretation/GradCAM_class_well_phase1_a500_Orig.png)
+
+`incorrect classification` 
+![display with Grad CAM results to incorrect classification](results/interpretation/GradCAM_class_wrong_phase1_a500_Orig.png)
 
 [Table of contentes](#table-of-contents)
