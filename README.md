@@ -566,11 +566,13 @@ BD/.../data_summary.csv
 
 This section presents **illustrative results** obtained using the DenseNet201 classifier on the k=1-fold with **equatorial views**. The evaluation includes training performance metrics, a box plot of prediction probabilities, a confusion matrix, and a detailed classification report.
 
-
+---
 **Prediction Confidence Analysis**
 The boxplot below displays the **distribution of prediction probabilities** for correctly classified samples:
 
 ![Boxplot of Prediction Probabilities](images/0_DenseNet201_EQUATORIAL_boxplot_k1.jpg)
+
+---
 
 **Confusion Matrix**
 
